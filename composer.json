@@ -1,0 +1,18 @@
+{
+    "name": "user/spy_budget_project",
+    "description": "A php application for tracking incomes and expenses.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "chalbrik",
+            "email": "64196949+chalbrik@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}
