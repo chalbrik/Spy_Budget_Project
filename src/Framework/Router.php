@@ -37,7 +37,7 @@ class Router
         return $path;
     }
 
-    public function dispatch(string $path, string $method)
+    public function dispatch(string $path, string $method, Container $container = null)
     {
         $path = $this->normalizePath($path);
         $method = strtoupper($method);
@@ -57,7 +57,10 @@ class Router
             //controller to tablica, którego wartości można przypisać do zmiennych w taki sposób
             [$class, $function] = $route['controller'];
 
-            $controllerInstance = new $class; //ten zapis oznacza że tworzy się instancję(obiekt) klasy kontrolera w tym miejscu. Można użyć zmiennej class jako nazwy klasy
+            $controllerInstance = $container ? $container->resolve($class) : new $class;
+            //ten zapis oznacza że tworzy się instancję(obiekt) klasy kontrolera w tym miejscu. Można użyć zmiennej class jako nazwy klasy
+            //tutaj też zrobiliśmy coś takiego że w zależnosci od tego jeżeli mamy jakiś kontroler, który wamaga przy instancji swojego obiektu jakiej parmetry to wstrzykniemy
+            //je za pomocą kontenera. Jeżeli nie to po prostu klasa kontrolera zostanie utworzona i tyle
 
             $controllerInstance->{$function}(); // a tutaj wywoływana jest funkcja tego controlera
 
