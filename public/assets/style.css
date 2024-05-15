@@ -1,0 +1,1095 @@
+body {
+    height: 100%;
+    width: 100%;
+
+    background: url(https://assets-global.website-files.com/641020f6523ba60d642cb5e5/64a5f3a7cbc6412be24ed066_08-noise.png);
+    animation: 0.8s infinite noise;
+
+    margin: 0 0 0 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    height: 100px;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid black;
+}
+
+.navbar-toggler-custom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #1675F2;
+    width: 50px;
+    height: 50px;
+}
+
+.custom-width {
+    width: 100%;
+}
+
+.custom-bg-color {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.custom-position {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: end !important;
+    width: 100% !important;
+    padding: 0 0 0 0 !important;
+}
+
+.custom-font {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.custom-font:hover {
+    color: #F2A616 !important;
+}
+
+.custom-font:focus {
+    color: #F2A616 !important;
+}
+
+.custom-font-logo {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+    margin: 0 0 0 0;
+    line-height: 2rem;
+    font-size: 2rem;
+    text-shadow: 2px 4px 0px #FF5E00;
+    -webkit-text-stroke: 2px #FF5E00;
+}
+
+.custom-font-logo:hover {
+
+    color: rgb(0, 0, 0);
+   
+}
+
+.custom-layout-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.custom-layout-logo>img {
+    height: 70px;
+    margin: 0 10px 0 0;
+}
+
+.dropdown-menu-custom-bg-color {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0, 0);
+}
+
+.dropdown-menu-custom-position {
+    padding: 0 0 0 0;
+    margin: 120px 0 0 0;
+}
+
+.nav-item-custom-postion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 50px;
+}
+
+.nav-icon {
+    padding: 8px 8px 8px 8px;
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+header>nav>h1 {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0 0 0 0;
+    line-height: 2rem;
+    font-size: 2rem;
+    text-shadow: 2px 4px 0px #FF5E00;
+    -webkit-text-stroke: 2px #FF5E00;
+}
+
+header ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 80%;
+}
+
+.logo {
+    animation: rotate-slice 20s infinite linear;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.animate-move-right {
+    animation: moveRight 1s linear forwards, fadeIn 1s ease-in-out forwards;
+    overflow: clip;
+}
+
+.animate-move-left {
+    animation: moveLeft 1s linear forwards;
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveLeft {
+    from {
+        transform: translateX(90%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+
+    }
+}
+
+.pie-chart-logo {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #F2A616;
+    border-radius: 50%;
+    transform: rotate(-90deg);
+    margin: 0 0 10px 0;
+}
+
+
+main {
+    height: 75vh;
+    margin: 0 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+main.check-balance-page {
+    height: auto;
+}
+
+.check-balance-main-container {
+    height: 70%;
+    width: 100%;
+}
+
+.log-in-sign-up-main-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.left-side {
+    height: inherit;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-and-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
+.logo-and-header>img {
+    height: 120px;
+}
+
+
+.logo-and-header>h1 {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 4rem;
+    font-size: 4rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 4px 0px #FF5E00;
+    -webkit-text-stroke: 2px #FF5E00;
+    margin: 3rem 2rem 3rem 2rem;
+}
+
+.logo-and-header>h1::before {
+    content: "    spy\A";
+    white-space: pre;
+}
+
+.left-side>p {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.right-side {
+    height: inherit;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+}
+
+.right-side h2 {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 3rem;
+    margin: 0 0 0 0;
+}
+
+.right-side h2.log-in-title {
+    -webkit-text-stroke: 2px rgb(0, 0, 0, 0.5);
+}
+
+.right-side h2.log-in-title:hover {
+    -webkit-text-stroke: 2px #F2A616;
+}
+
+.right-side h2.sign-up-title {
+    -webkit-text-stroke: 2px rgb(0, 0, 0, 0.5);
+}
+
+.right-side h2.sign-up-title:hover {
+    -webkit-text-stroke: 2px #1675F2;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.log-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    padding: 0 20px 0 20px;
+    margin: 20px 0 0 0;
+}
+
+.line-outline {
+    border-top: 2px solid black;
+    width: 95%;
+    /* transform: rotate(45deg);
+    overflow: hidden; poźniej trzeba bedzie to ogrnąć, prawdopodobnie trzeba bedzie przemodelowac trochę strukturę żeby to działało*/
+    /* margin:  0 0 50px 0; */
+}
+
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    padding: 0 20px 0 20px;
+    margin: 20px 0 0 0;
+}
+
+.input-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin: 30px 0 0 0
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0 5px 0;
+
+}
+
+.input-field>input {
+    width: 100%;
+    max-width: 270px;
+    height: 35px;
+    margin: 0 0 0 0;
+    padding: 0 15px 0 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+/* This is class witch is added when input field is not filled with data */
+.input-field>input.not-filled {
+    border: 2px solid hsl(0, 100%, 74%) !important;
+}
+
+span.input-name {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    width: 100%;
+    max-width: 270px;
+    font-size: 0.8rem;
+
+}
+
+button {
+    width: 100%;
+    max-width: 270px;
+    height: 35px;
+    margin: 20px 0 20px 0;
+}
+
+button.log-in-button {
+    background-color: rgb(22, 117, 242, 0.8);
+    border: 2px solid rgb(22, 117, 242);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+button.log-in-button:hover {
+    background-color: rgb(22, 117, 242);
+    cursor: pointer;
+}
+
+.button-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+button.sign-up-button {
+    background-color: #FF5E00;
+    order: 2px solid #FF5E00;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+button.sign-up-button:hover {
+    cursor: pointer;
+}
+
+.transaction-form {
+    height: 95%;
+    width: 100%;
+
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 0 20px 0;
+
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.transaction-form>h2 {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: black;
+    margin: 0 0 0 0;
+}
+
+.input-form {
+    height: 90%;
+    width: 95%;
+    background-color: rgb(255, 255, 255, 0.2);
+    border: 1px solid black;
+    /* border-radius: 15px; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 30px 10px 30px;
+}
+
+.form-amount-date {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.amount-input-currency {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: end;
+}
+
+.form-input>input {
+    height: 35px;
+    width: 90%;
+    margin: 5px 0 0 0;
+    padding: 0 15px 0 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.amount-input {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3rem;
+    appearance: none;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    outline: none;
+    border-bottom: .15em solid black !important;
+    height: 100%;
+    width: 60%;
+}
+
+.date-input {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3rem;
+}
+
+span.currency {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3rem;
+    margin: 0 15px 0 15px;
+}
+
+fieldset.category {
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.3rem;
+
+    margin: 10px 0 10px 0;
+}
+
+fieldset.category legend {
+    font-size: 1.3rem;
+}
+
+.form-input-note {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+
+
+}
+
+.form-input-note>textarea {
+    height: 100px;
+    width: 100%;
+    margin: 5px 0 0 0;
+    padding: 15px 15px 15px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.form-check {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 0 0 0 0 !important;
+    margin: 0 50px 5px 0 !important;
+}
+
+.form-check-input{
+    margin: 0 0 0 0 !important;
+}
+
+.form-check > label {
+
+   margin-left: 10px;
+}
+
+
+.radio-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.form-button-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+}
+
+.button-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-button-action button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    margin: 0 0 0 0;
+}
+
+.button-action:hover {
+    text-decoration: underline;
+}
+
+.done-button>img {
+    height: 25px;
+}
+
+.check-balance-main-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.period-for-data {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+.period-for-data>label {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0 30px 0 0;
+}
+
+.period-for-data>select {
+    width: 270px;
+    height: 80%;
+    border-radius: 8px;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+/* .time-frame-submit-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60px;
+    background: none;
+    border: none;
+    fill: rgb(0, 0, 0, 0.);
+
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    
+}
+
+.time-frame-submit-button > svg{
+    height: 70%;
+}
+
+.time-frame-submit-button > svg:hover{
+    fill: #1675F2;
+    cursor: pointer;
+    to był styl dla guzika ale potem to wykorzystam do add income expense żeby podświetlać guziczek
+} */
+
+.incomes-expenses-charts {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    margin: 5px 5px 5px 5px;
+}
+
+.incomes-charts {
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-right: 5px;
+
+}
+
+.incomes-doughnut-chart {
+    height: 300px !important;
+    width: 300px !important;
+}
+
+.chart-name {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-stroke: 1px black;
+
+    margin: 0 0 0 0;
+    padding: 10px 10px 10px 10px;
+    font-size: 35px;
+}
+
+.chart-sum-value {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-stroke: 1px black;
+
+    margin: 0 0 0 0;
+    padding: 10px 10px 10px 10px;
+    font-size: 35px;
+}
+
+.expenses-charts {
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 5px;
+}
+
+.bilans-chart {
+    height: 400px;
+    width: 100%;
+    border: 1px solid black;
+    margin: 5px 5px 5px 5px;
+}
+
+.bilans-line-chart {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+
+.footer {
+    border-top: 1px solid black;
+    height: 80px;
+    width: 80%;
+    margin: auto;
+}
+
+.footer-custom-font div {
+   display: flex;
+   flex-direction: row;
+   justify-content:center ;
+   align-items: center;
+   margin-top: 10px;
+}
+
+.footer-custom-font span {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+
+
+
+
+
+@media (max-height: 800px) {
+
+    .right-side h2 {
+        font-size: 2.6rem;
+    }
+
+    .left-side>p {
+        font-size: 14px;
+        margin-top: 25px;
+    }
+
+    .log-in {
+        height: 400px;
+    }
+
+    .sign-up {
+        height: 400px;
+    }
+}
+
+@media (max-width: 1450px) {
+
+    .right-side h2 {
+        font-size: 2.6rem;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .custom-position {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: end !important;
+        width: 100% !important;
+        padding: 0 0 0 0 !important;
+    }
+
+    .incomes-expenses-charts {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 5px 5px 5px;
+    }
+
+    .incomes-charts {
+        height: 100%;
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 5px;
+
+    }
+
+    .expenses-charts {
+        height: 100%;
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+
+    .collapse:not(.show) {
+        display: none !important;
+    }
+
+    .custom-layout-logo{
+        display: none;
+    }
+
+    main.user-page {
+        height: 75vh;
+    }
+    .form-amount-date {
+        flex-direction: column;
+    }
+
+    .form-input {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+
+    .navbar-collapse-custom-background{
+        background-color: white !important;
+        background: url(https://assets-global.website-files.com/641020f6523ba60d642cb5e5/64a5f3a7cbc6412be24ed066_08-noise.png);
+        animation: 0.8s infinite noise;
+        border: 1px solid black;
+    }
+    
+}
+
+@media (max-width: 435px) {
+
+    main {
+        height: 100%;
+        width: 95%;
+    }
+
+    main.user-page {
+        height: 75vh;
+    }
+
+    .log-in-sign-up-main-container {
+        height: 100%;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo-and-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    .logo-and-header>h1 {
+        font-family: "Rubik Mono One", monospace;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 2rem;
+        font-size: 2rem;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 4px 0px #FF5E00;
+        -webkit-text-stroke: 2px #FF5E00;
+        margin: 3rem 2rem 3rem 2rem;
+    }
+
+    .logo-and-header>img {
+        height: 70px;
+    }
+
+    .description {
+        display: none;
+    }
+
+    .left-side {
+        height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .right-side {
+        height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    .box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .log-in {
+        height: 100%;
+    }
+
+    .sign-up {
+        height: 100%;
+    }
+
+    .collapse:not(.show) {
+        display: none !important;
+    }
+
+    .custom-layout-logo{
+        display: none;
+    }
+
+    header {
+        width: 95%;
+    }
+
+    .form-amount-date {
+        flex-direction: column;
+    }
+
+    .form-input {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+
+    .navbar-collapse-custom-background{
+        background-color: white !important;
+        background: url(https://assets-global.website-files.com/641020f6523ba60d642cb5e5/64a5f3a7cbc6412be24ed066_08-noise.png);
+        animation: 0.8s infinite noise;
+        border: 1px solid black;
+    }
+    
+}
+
+
+
+
+
+
+@keyframes rotate-slice {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes noise {
+    0% {
+        background-position: 0 0;
+    }
+
+    10% {
+        background-position: -5% -10%;
+    }
+
+    20% {
+        background-position: -10% 5%;
+    }
+
+    30% {
+        background-position: 5% -5%;
+    }
+
+    40% {
+        background-position: -5% 10%;
+    }
+
+    50% {
+        background-position: 5% 5%;
+    }
+
+    60% {
+        background-position: 10% 0;
+    }
+
+    70% {
+        background-position: 5% 10%;
+    }
+
+    80% {
+        background-position: -10% 5%;
+    }
+
+    90% {
+        background-position: 10% 10%;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}

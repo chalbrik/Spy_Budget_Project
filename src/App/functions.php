@@ -9,3 +9,10 @@ function dd(mixed $value)
     var_dump($value);
     echo "</pre>";
 }
+
+//funkcja escape, która zapobiega atakom xss czyli przekazywaniu danych w przekazywanych przez użytkownika na stronie w postaci 
+//znaków interpretowanych przez interpretor jako kod
+function e($value): string
+{
+    return htmlspecialchars((string) $value);
+}
