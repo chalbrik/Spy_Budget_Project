@@ -9,11 +9,13 @@ require __DIR__ . "/../../vendor/autoload.php";
 use Framework\App;
 use App\Config\Paths;
 
-use function App\Config\registerRoutes;
+use function App\Config\{registerRoutes, registerMiddleware};
 
 $app = new App(Paths::SOURCE . "App/container-definitions.php");
 
+//zawsze jak tutaj deklaruje funkcje które rejestrują albo Routes albo middlewares dla aplikacji trzeba dodać zależności w composer.json
 registerRoutes($app);
+registerMiddleware($app);
 
 
 return $app;

@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Framework;
 
+//zadanie Routera jest wyświetlenie właściwej strony internetowej dla podanego adresu Url, a konkretniej wybranie odpowieniego kontrolera dla danego adresu Url
+
 class Router
 {
 
     private array $routes = []; // to jest tablica moich routes
+    private array $middlewares = []; //okazuje się że przechowujemy tablice z middlewares w routerze!
 
     //poniżej metoda dodawania routes
     public function add(string $method, string $path, array $controller)
@@ -57,15 +60,28 @@ class Router
             //controller to tablica, którego wartości można przypisać do zmiennych w taki sposób
             [$class, $function] = $route['controller'];
 
-            $controllerInstance = $container ? $container->resolve($class) : new $class;
+            $controllerInstance = $container ? $container->resolve($class) : new $class; //tu następuje wstrzykiwanie zależności do nowo utworzonego kontrolera
             //ten zapis oznacza że tworzy się instancję(obiekt) klasy kontrolera w tym miejscu. Można użyć zmiennej class jako nazwy klasy
             //tutaj też zrobiliśmy coś takiego że w zależnosci od tego jeżeli mamy jakiś kontroler, który wamaga przy instancji swojego obiektu jakiej parmetry to wstrzykniemy
             //je za pomocą kontenera. Jeżeli nie to po prostu klasa kontrolera zostanie utworzona i tyle
 
-            $controllerInstance->{$function}(); // a tutaj wywoływana jest funkcja tego controlera
+            $action = fn () => $controllerInstance->{$function}(); // a tutaj wywoływana jest funkcja tego controlera
 
             //powyższy zabieg nazywa sie dynamicznym tworzeniem instancji klasy
 
+            foreach ($this->middlewares as $middleware) {
+                $middlewareInstance = $container ? $container->resolve($middleware) : new $middleware; //tutuaj następuje wstrzykiwanie zależności do nowo utworzonego middleware
+                $action = fn () => $middlewareInstance->process($action);
+            }
+
+            $action();
+
+            return;
         }
+    }
+
+    public function addMiddleware(string $middleware)
+    {
+        $this->$middleware[] = $middleware;
     }
 }
