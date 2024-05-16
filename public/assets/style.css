@@ -14,7 +14,7 @@ body {
 
 header {
     height: 100px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     border-bottom: 1px solid black;
 }
@@ -209,7 +209,7 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
@@ -801,7 +801,7 @@ fieldset.category legend {
 .footer {
     border-top: 1px solid black;
     height: 80px;
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
