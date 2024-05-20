@@ -25,6 +25,7 @@ class Router
         ];
         //to jest dodawanie wartości do tablicy routes, wartością tą tez jest tablica, w tablicy 
         //routes znajdują się trasy z konfiguracjami oraz danymi co z nimi robić
+
     }
 
     //potrzebuję funkcji, która będzie pilnować, że ścieżka jest przekazywanan do tablicy routes we 

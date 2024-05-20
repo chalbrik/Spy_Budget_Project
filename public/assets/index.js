@@ -1,20 +1,28 @@
 //rozwijaj pełną nazwę linków w navbarze
-document.querySelectorAll(".nav-item").forEach((navItem) => {
-    navItem.addEventListener("mouseover", () => {
-      navItem.querySelector("img.nav-icon").nextElementSibling.hidden = false;
-      navItem.querySelector("img.nav-icon").classList.add("animate-move-left");
-      navItem.querySelector("img.nav-icon").nextElementSibling.classList.add("animate-move-right");
+// document.querySelectorAll(".nav-item").forEach((navItem) => {
+//     navItem.addEventListener("mouseover", () => {
+//       navItem.querySelector("img.nav-icon").nextElementSibling.hidden = false;
+//       navItem.querySelector("img.nav-icon").classList.add("animate-move-left");
+//       navItem.querySelector("img.nav-icon").nextElementSibling.classList.add("animate-move-right");
   
-    });
-  });
+//     });
+//   });
   
-  document.querySelectorAll(".nav-item").forEach((navItem) => {
-    navItem.addEventListener("mouseout", () => {
-      navItem.querySelector("img.nav-icon").nextElementSibling.hidden = true;
-      navItem.querySelector("img.nav-icon").classList.remove("animate-move-left");
-      navItem.querySelector("img.nav-icon").nextElementSibling.classList.remove("animate-move-right");
-    });
+  // document.querySelectorAll(".nav-item").forEach((navItem) => {
+  //   navItem.addEventListener("mouseout", () => {
+  //     navItem.querySelector("img.nav-icon").nextElementSibling.hidden = true;
+  //     navItem.querySelector("img.nav-icon").classList.remove("animate-move-left");
+  //     navItem.querySelector("img.nav-icon").nextElementSibling.classList.remove("animate-move-right");
+  //   });
+  // });
+
+  document.querySelector(".nav-item-add").addEventListener("mouseover", ()=> {
+    document.querySelector(".dropdown-menu-add").hidden = false;
   });
+
+  // document.querySelector(".nav-name-add").addEventListener("mouseout", ()=> {
+  //   document.querySelector(".nav-name-add").nextElementSibling.hidden = true;
+  // });
   
   function submitForm() {
     document.getElementById('time-frame-form').submit();

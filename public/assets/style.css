@@ -73,6 +73,7 @@ header {
     font-size: 2rem;
     text-shadow: 2px 4px 0px #FF5E00;
     -webkit-text-stroke: 2px #FF5E00;
+    text-decoration: none;
 }
 
 .custom-font-logo:hover {
