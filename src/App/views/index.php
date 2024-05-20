@@ -43,7 +43,7 @@
                 <div class="sign-up">
                     <h2 class="sign-up-title">Sign up</h2>
 
-                    <form action="./register.php" method="post" class="input-table">
+                    <form method="POST" class="input-table">
                         <div class="input-field">
                             <span class="input-name">Name</span>
                             <input type="text" name="username" />
