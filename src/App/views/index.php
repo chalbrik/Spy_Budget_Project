@@ -45,7 +45,7 @@
                     <form method="POST" class="input-table">
                         <div class="input-field">
                             <span class="input-name">Name</span>
-                            <input type="text" name="username" />
+                            <input type="text" name="username" value="<?php echo e($oldFormData['username'] ?? ''); ?>" />
                             <?php if (array_key_exists('username', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['username'][0]); ?>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">E-mail address</span>
-                            <input type="text" name="email" />
+                            <input type="text" name="email" value="<?php echo e($oldFormData['email'] ?? ''); ?>" />
                             <?php if (array_key_exists('email', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['email'][0]); ?>
