@@ -23,6 +23,8 @@ class HomeController
 
     public function registerUser()
     {
-        dd($_POST);
+        $this->validatorService->validateRegister($_POST);
+
+        redirectTo('/');
     }
 }

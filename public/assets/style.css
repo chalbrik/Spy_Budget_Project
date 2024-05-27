@@ -822,6 +822,10 @@ fieldset.category legend {
     font-size: 1rem;
 }
 
+.validation-error-message{
+    color: #FF5E00;
+}
+
 
 
 

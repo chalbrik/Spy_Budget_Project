@@ -42,23 +42,42 @@
             <div class="box">
                 <div class="sign-up">
                     <h2 class="sign-up-title">Sign up</h2>
-
                     <form method="POST" class="input-table">
                         <div class="input-field">
                             <span class="input-name">Name</span>
                             <input type="text" name="username" />
+                            <?php if (array_key_exists('username', $errors)) : ?>
+                                <span class="input-name validation-error-message">
+                                    <?php echo e($errors['username'][0]); ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
                         <div class="input-field">
                             <span class="input-name">E-mail address</span>
                             <input type="text" name="email" />
+                            <?php if (array_key_exists('email', $errors)) : ?>
+                                <span class="input-name validation-error-message">
+                                    <?php echo e($errors['email'][0]); ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
                         <div class="input-field">
                             <span class="input-name">Password</span>
                             <input type="text" name="password" />
+                            <?php if (array_key_exists('password', $errors)) : ?>
+                                <span class="input-name validation-error-message">
+                                    <?php echo e($errors['password'][0]); ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
                         <div class="input-field">
                             <span class="input-name">Repeat password</span>
                             <input type="text" name="password-repeat" />
+                            <?php if (array_key_exists('password-repeat', $errors)) : ?>
+                                <span class="input-name validation-error-message">
+                                    <?php echo e($errors['password-repeat'][0]); ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
                         <button class="sign-up-button" type="submit">Register</button>
                     </form>

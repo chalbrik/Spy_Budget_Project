@@ -83,6 +83,6 @@ class Router
 
     public function addMiddleware(string $middleware)
     {
-        $this->$middleware[] = $middleware;
+        $this->middlewares[] = $middleware;
     }
 }

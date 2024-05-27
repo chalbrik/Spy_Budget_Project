@@ -8,6 +8,7 @@ function dd(mixed $value)
     echo "<pre>";
     var_dump($value);
     echo "</pre>";
+    die();
 }
 
 //funkcja escape, która zapobiega atakom xss czyli przekazywaniu danych w przekazywanych przez użytkownika na stronie w postaci 
@@ -15,4 +16,11 @@ function dd(mixed $value)
 function e($value): string
 {
     return htmlspecialchars((string) $value);
+}
+
+function redirectTo(string $path)
+{
+    header("Location: {$path}");
+    http_response_code(302);
+    exit();
 }
