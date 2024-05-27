@@ -2,23 +2,24 @@
 
 //custom composer scripts - to jest plik który jest wykonywany przez rozszerzenie composer
 
-$driver = 'mysql';
+include __DIR__ . '/src/Framework/Database.php';
+require __DIR__ . '/vendor/autoload.php';
 
-$config = http_build_query(data: [
-    'host' => 'localhost',
-    'port' => 3306,
-    'dbname' => 'budget_app'
-], arg_separator: ';');
+use Framework\Database;
 
-$dsn = "{$driver}:{$config}";
-$username = 'root';
-$password = ''; //pamietaj żeby potem ustawić tu hasło kiedy bedziemy przekazywać to na publiczny serwer
+use App\Config\Paths;
+use Dotenv\Dotenv;
 
-try {
-    $db = new PDO($dsn, $username, $password);
-} catch (PDOException $e) {
-    die("Unable to connect to database");
-}
+$dotenv = Dotenv::createImmutable(Paths::ROOT);
+$dotenv->load();
+
+$db = new Database($_ENV['DB_DRIVER'], [
+    'host' => $_ENV['DB_HOST'],
+    'port' => $_ENV['DB_PORT'],
+    'dbname' => $_ENV['DB_NAME']
+], $_ENV['DB_USER'], $_ENV['DB_PASS']);
 
 
-echo "Connected to database";
+//$sqlFile = file_get_contents("./database.sql");
+
+//$db->connection->query($sqlFile);
