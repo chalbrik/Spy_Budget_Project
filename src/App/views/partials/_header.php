@@ -45,7 +45,7 @@
                     </li>
                     <li class="nav-item nav-item-custom-postion">
                         <img id="log-out" class="nav-icon" src="/assets/icons/box-arrow-right.svg" alt="Log out" />
-                        <a class="nav-link custom-font nav-name-log-out" href="#">Log out</a>
+                        <a class="nav-link custom-font nav-name-log-out" href="/logout">Log out</a>
                     </li>
                 </ul>
             </div>

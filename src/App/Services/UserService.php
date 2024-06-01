@@ -59,6 +59,15 @@ class UserService
             throw new ValidationException(['password-login' => ['Invalid credentials']]);
         }
 
+        session_regenerate_id(); //kolejna metoda służąca zabezpieczeniu strony przed atakami xss, id sesji zostanie zregenorowane kiedy użytkownik się zaloguje
+
         $_SESSION['user'] = $user['user_id'];
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user']);
+
+        session_regenerate_id();
     }
 }

@@ -14,23 +14,26 @@ use App\Controllers\{
     TrackExpensesController,
     SettingsController
 };
+use App\Middleware\{AuthRequiredMiddleware, GuestOnlyMiddleware};
 
 function registerRoutes(App $app)
 {
 
-    $app->get('/', [HomeController::class, 'home']);
-    $app->post('/register', [HomeController::class, 'registerUser']);
-    $app->post('/login', [HomeController::class, 'loginUser']);
+    $app->get('/', [HomeController::class, 'home'])->add(GuestOnlyMiddleware::class);
+    $app->post('/register', [HomeController::class, 'registerUser'])->add(GuestOnlyMiddleware::class);
+    $app->post('/login', [HomeController::class, 'loginUser'])->add(GuestOnlyMiddleware::class);
 
-    $app->get('/userpage', [MainUserPageController::class, 'mainUserPage']);
+    $app->get('/userpage', [MainUserPageController::class, 'mainUserPage'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/add-income', [AddIncomeController::class, 'addIncome']);
+    $app->get('/add-income', [AddIncomeController::class, 'addIncome'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/add-expense', [AddExpenseController::class, 'addExpense']);
+    $app->get('/add-expense', [AddExpenseController::class, 'addExpense'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/check-balance', [CheckBalanceController::class, 'checkBalance']);
+    $app->get('/check-balance', [CheckBalanceController::class, 'checkBalance'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/track-expenses', [TrackExpensesController::class, 'trackExpenses']);
+    $app->get('/track-expenses', [TrackExpensesController::class, 'trackExpenses'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/settings', [SettingsController::class, 'settings']);
+    $app->get('/settings', [SettingsController::class, 'settings'])->add(AuthRequiredMiddleware::class);
+
+    $app->get('/logout', [HomeController::class, 'logoutUser'])->add(AuthRequiredMiddleware::class);
 }

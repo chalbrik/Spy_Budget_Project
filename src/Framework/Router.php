@@ -21,7 +21,8 @@ class Router
         $this->routes[] = [
             'path' => $path,
             'method' => strtoupper($method),
-            'controller' => $controller
+            'controller' => $controller,
+            'middlewares' => []
         ];
         //to jest dodawanie wartości do tablicy routes, wartością tą tez jest tablica, w tablicy 
         //routes znajdują się trasy z konfiguracjami oraz danymi co z nimi robić
@@ -70,7 +71,9 @@ class Router
 
             //powyższy zabieg nazywa sie dynamicznym tworzeniem instancji klasy
 
-            foreach ($this->middlewares as $middleware) {
+            $allMiddleware = [...$route['middlewares'], ...$this->middlewares]; //ten fragment kodu aplikuje potrzebne middlewary do odpowiedniej ścieżki
+
+            foreach ($allMiddleware as $middleware) {
                 $middlewareInstance = $container ? $container->resolve($middleware) : new $middleware; //tutuaj następuje wstrzykiwanie zależności do nowo utworzonego middleware
                 $action = fn () => $middlewareInstance->process($action);
             }
@@ -84,5 +87,11 @@ class Router
     public function addMiddleware(string $middleware)
     {
         $this->middlewares[] = $middleware;
+    }
+
+    public function addRouteMiddleware(string $middleware)
+    {
+        $lastRouteKey = array_key_last($this->routes);
+        $this->routes[$lastRouteKey]['middlewares'][] = $middleware;
     }
 }

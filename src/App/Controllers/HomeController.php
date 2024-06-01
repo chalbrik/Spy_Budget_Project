@@ -42,7 +42,12 @@ class HomeController
 
         $this->userService->login($_POST);
 
-        dd("Yes");
+        redirectTo('/');
+    }
+
+    public function logoutUser()
+    {
+        $this->userService->logout();
 
         redirectTo('/');
     }

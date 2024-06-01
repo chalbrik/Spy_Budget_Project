@@ -39,20 +39,29 @@ class App
         $this->router->dispatch($path, $method, $this->container);
     }
 
-    public function get(string $path, array $controller)
+    public function get(string $path, array $controller): App
     {
         $this->router->add('GET', $path, $controller);
+
+        return $this;
     }
     //generalnie dodaje się ścieżki w klasie Router, ale deweloper używa klasy app więc 
     //powstaje tu funkcja, która przekazuje dane do obiektu router i on przypisuje potem informacje danej ściezki do tablicy
 
-    public function post(string $path, array $controller)
+    public function post(string $path, array $controller): App
     {
         $this->router->add('POST', $path, $controller);
+
+        return $this;
     }
 
     public function addMiddleware(string $middleware)
     {
         $this->router->addMiddleware($middleware);
+    }
+
+    public function add(string $middleware)
+    {
+        $this->router->addRouteMiddleware($middleware);
     }
 }
