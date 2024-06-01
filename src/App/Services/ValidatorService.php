@@ -24,10 +24,18 @@ class ValidatorService
     {
 
         $this->validator->validate($formData, [
-            'username' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-            'password-repeat' => ['required', 'match:password']
+            'username-register' => ['required'],
+            'email-register' => ['required', 'email'],
+            'password-register' => ['required'],
+            'password-repeat-register' => ['required', 'match:password']
+        ]);
+    }
+
+    public function validateLogin(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'email-login' => ['required', 'email'],
+            'password-login' => ['required'],
         ]);
     }
 }
