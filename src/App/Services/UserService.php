@@ -33,16 +33,32 @@ class UserService
     public function create(array $formData)
     {
 
-        $password = password_hash($formData['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+        $password = password_hash($formData['password-register'], PASSWORD_BCRYPT, ['cost' => 12]);
 
         $this->db->query(
             "INSERT INTO user_data(user_name, password, address_email) 
             VALUES(:username, :password, :email)",
             [
-                'username' => $formData['username'],
+                'username' => $formData['username-register'],
                 'password' =>  $password,
-                'email' => $formData['email']
+                'email' => $formData['email-register']
             ]
         );
+    }
+
+    public function login(array $formData)
+    {
+
+        $user = $this->db->query("SELECT * FROM user_data WHERE address_email = :email", [
+            'email' => $formData['email-login']
+        ])->find(); //celem metody find będzie odzyskanie wartości z zapytania
+
+        $passwordMatch = password_verify($formData['password-login'], $user['password'] ?? '');
+
+        if (!$user || !$passwordMatch) {
+            throw new ValidationException(['password-login' => ['Invalid credentials']]);
+        }
+
+        $_SESSION['user'] = $user['user_id'];
     }
 }

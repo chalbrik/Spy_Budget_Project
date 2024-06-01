@@ -28,7 +28,7 @@ class HomeController
     public function registerUser()
     {
         $this->validatorService->validateRegister($_POST);
-        $this->userService->isEmailTaken($_POST['email']);
+        $this->userService->isEmailTaken($_POST['email-register']);
 
         $this->userService->create($_POST);
 
@@ -40,9 +40,9 @@ class HomeController
 
         $this->validatorService->validateLogin($_POST);
 
-        dd("Hello");
+        $this->userService->login($_POST);
 
-        //$this->userService->create($_POST);
+        dd("Yes");
 
         redirectTo('/');
     }

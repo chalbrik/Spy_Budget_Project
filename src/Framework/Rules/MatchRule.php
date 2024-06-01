@@ -13,6 +13,9 @@ class MatchRule implements RuleInterface
         $fieldOne = $data[$field];
         $fieldTwo = $data[$params[0]];
 
+        ////dd($field);
+        //dd($fieldTwo);
+
         return $fieldOne === $fieldTwo;
     }
 

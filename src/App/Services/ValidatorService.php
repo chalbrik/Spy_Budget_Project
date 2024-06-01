@@ -27,7 +27,7 @@ class ValidatorService
             'username-register' => ['required'],
             'email-register' => ['required', 'email'],
             'password-register' => ['required'],
-            'password-repeat-register' => ['required', 'match:password']
+            'password-repeat-register' => ['required', 'match:password-register']
         ]);
     }
 
