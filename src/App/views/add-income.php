@@ -33,8 +33,7 @@
             </div>
 
             <div class="form-button-action">
-                <div class="cancel-button button-action"><img src="./assets/x-lg.svg" alt="Cancel"><a href="./userpage.php"><button>Cancel</button></a></div>
-                <div class="done-button button-action"><img src="./assets/check-lg.svg" alt="Done"><button type="submit">Done</button></div>
+                <div class="done-button button-action"><img src="assets/icons/check-lg.svg" alt="Done"><button type="submit">Done</button></div>
             </div>
 
         </form>

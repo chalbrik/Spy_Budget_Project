@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    height: 100px;
+    height: 80px;
     width: 90%;
     margin: auto;
     border-bottom: 1px solid black;
@@ -204,7 +204,7 @@ header ul {
 
 
 main {
-    height: 75vh;
+    height: 80vh;
     margin: 0 0 0 0;
     display: flex;
     flex-direction: row;
@@ -237,7 +237,7 @@ main.check-balance-page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo-and-header {
@@ -322,6 +322,24 @@ main.check-balance-page {
     align-items: center;
     width: 50%;
     height: 100%;
+}
+
+.home-page-description{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.home-page-description>p{
+    margin: 0 0 0 0;
+}
+
+.pointer-graphics{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
 }
 
 .log-in {
@@ -622,7 +640,7 @@ fieldset.category legend {
 .form-button-action {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: end;
     width: 100%;
 }

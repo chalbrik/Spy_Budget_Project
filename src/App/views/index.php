@@ -8,18 +8,16 @@
 
                 <h1>budget</h1>
             </div>
-            <p class="description">
-                Our budget app is an intuitive tool designed to assist users in
-                effectively managing their personal finances. With it, you can
-                easily track your expenses, both daily and larger planned
-                investments.<br><br> It is a simple-to-use yet powerful financial tool that
-                supports users in making informed decisions about their money. The
-                app provides quick access to financial summaries, expenditure
-                analysis, and budget forecasts, helping to maintain a healthy
-                financial balance.<br><br> Whether you are an experienced financier or just
-                starting your journey in budget management, our app is the perfect
-                tool to help you achieve your financial goals!
-            </p>
+            <div class="home-page-description">
+                <p class="description">Manage your personal finances.</p>
+            </div>
+            <div class="home-page-description">
+                <p class="description">Track your expenses and plan investments.</p>
+            </div>
+            <div class="home-page-description">
+                <p class="description">The app provides quick access to financial summaries, expenditure analysis, and budget forecasts, helping to maintain a healthy financial balance.</p>
+            </div>
+
         </div>
         <div class="right-side">
             <div class="box">
