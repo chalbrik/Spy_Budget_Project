@@ -26,6 +26,7 @@
                 <div class="log-in">
                     <h2 class="log-in-title">Log in</h2>
                     <form action="/login" method="post" class="input-table">
+                        <?php include $this->resolve('partials/_csrf.php'); ?>
                         <div class="input-field">
                             <span class="input-name">E-mail address</span>
                             <input type="text" name="email-login" value="<?php echo e($oldFormData['email-login'] ?? ''); ?>" />
@@ -53,6 +54,7 @@
                 <div class="sign-up">
                     <h2 class="sign-up-title">Sign up</h2>
                     <form action="/register" method="POST" class="input-table">
+                        <?php include $this->resolve('partials/_csrf.php'); ?>
                         <div class="input-field">
                             <span class="input-name">Name</span>
                             <input type="text" name="username-register" value="<?php echo e($oldFormData['username-register'] ?? ''); ?>" />
