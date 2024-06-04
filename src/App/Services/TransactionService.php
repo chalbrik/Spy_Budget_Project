@@ -29,7 +29,7 @@ class TransactionService
                 [
                     'incomeAmount' => $formData['amount'],
                     'incomeDate' => $formData['transaction-date'],
-                    'incomeCategory' => 21,
+                    'incomeCategory' => $formData['transaction-category'],
                     'incomeNote' => $formData['note'],
                     'userId' => $currentUserId
 
@@ -44,12 +44,29 @@ class TransactionService
                 [
                     'expenseAmount' => $formData['amount'],
                     'expenseDate' => $formData['transaction-date'],
-                    'expenseCategory' => 21,
+                    'expenseCategory' => $formData['transaction-category'],
                     'expenseNote' => $formData['note'],
                     'userId' => $currentUserId
 
                 ]
             );
         }
+    }
+
+    public function applyCategoriesToForm(string $transactionsType): array
+    {
+        $currentUserId = $_SESSION['user'];
+
+        if ($transactionsType == "incomes") {
+            $diplayedCategories = $this->db->query("SELECT income_category_assigned_to_user_id, income_category_name FROM incomes_category_assigned_to_users WHERE user_id = :userId", [
+                'userId' => $currentUserId
+            ])->findAll();
+        } else if ($transactionsType == "expenses") {
+            $diplayedCategories = $this->db->query("SELECT expense_category_assigned_to_user_id, expense_category_name FROM expenses_category_assigned_to_users WHERE user_id = :userId", [
+                'userId' => $currentUserId
+            ])->findAll();
+        }
+
+        return $diplayedCategories;
     }
 }

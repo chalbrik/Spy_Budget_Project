@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Framework\Validator;
-use Framework\Rules\{RequiredRule, EmailRule, MatchRule};
+use Framework\Rules\{RequiredRule, EmailRule, MatchRule, LengthMaxRule, NumericRule, DateFormatRule};
 
 class ValidatorService
 {
@@ -18,6 +18,9 @@ class ValidatorService
         $this->validator->add('required', new RequiredRule());
         $this->validator->add('email', new EmailRule());
         $this->validator->add('match', new MatchRule());
+        $this->validator->add('lengthMax', new LengthMaxRule());
+        $this->validator->add('numeric', new NumericRule());
+        $this->validator->add('dateFormat', new DateFormatRule());
     }
 
     public function validateRegister(array $formData)
@@ -36,6 +39,15 @@ class ValidatorService
         $this->validator->validate($formData, [
             'email-login' => ['required', 'email'],
             'password-login' => ['required'],
+        ]);
+    }
+
+    public function validateTransaction(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'amount' => ['required', 'numeric'],
+            'transaction-date' => ['required', 'dateFormat:Y-m-d'],
+            'note' => ['required', 'lengthMax:255']
         ]);
     }
 }

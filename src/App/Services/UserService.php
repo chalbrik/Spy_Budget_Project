@@ -51,6 +51,21 @@ class UserService
         $_SESSION['user'] = $this->db->id();
     }
 
+    public function assignDefaultCategoriesToUser()
+    {
+        $this->db->query('INSERT INTO incomes_category_assigned_to_users(income_category_assigned_to_user_id, user_id, income_category_name)
+        SELECT NULL, :userId, income_category_name
+        FROM incomes_category_default', [
+            'userId' => $_SESSION['user']
+        ]);
+
+        $this->db->query('INSERT INTO expenses_category_assigned_to_users(expense_category_assigned_to_user_id, user_id, expense_category_name)
+        SELECT NULL, :userId, expense_category_name
+        FROM expenses_category_default', [
+            'userId' => $_SESSION['user']
+        ]);
+    }
+
     public function login(array $formData)
     {
 
