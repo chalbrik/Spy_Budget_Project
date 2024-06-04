@@ -32,6 +32,7 @@ function registerRoutes(App $app)
     $app->post('/add-expense', [AddExpenseController::class, 'addExpense'])->add(AuthRequiredMiddleware::class);
 
     $app->get('/check-balance', [CheckBalanceController::class, 'checkBalance'])->add(AuthRequiredMiddleware::class);
+    $app->post('/check-balance', [CheckBalanceController::class, 'checkBalance'])->add(AuthRequiredMiddleware::class);
 
     $app->get('/track-expenses', [TrackExpensesController::class, 'trackExpenses'])->add(AuthRequiredMiddleware::class);
 

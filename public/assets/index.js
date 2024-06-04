@@ -16,17 +16,23 @@
   //   });
   // });
 
-  document.querySelector(".nav-item-add").addEventListener("mouseover", ()=> {
-    document.querySelector(".dropdown-menu-add").hidden = false;
-  });
+  // document.querySelector(".nav-item-add").addEventListener("mouseover", ()=> {
+  //   document.querySelector(".dropdown-menu-add").hidden = false;
+  // });
 
   // document.querySelector(".nav-name-add").addEventListener("mouseout", ()=> {
   //   document.querySelector(".nav-name-add").nextElementSibling.hidden = true;
   // });
+
   
   function submitForm() {
     document.getElementById('time-frame-form').submit();
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var selectElement = document.getElementById('time-period');
+    selectElement.addEventListener('change', submitForm);
+});
   
   //doughnut - incomes
   const incomesCtx = document.getElementById("incomeDoughnutChart");
@@ -108,75 +114,75 @@
   });
   
   //line - bilans
-  const bilansCtx = document.getElementById("bilansLineChart");
+  // const bilansCtx = document.getElementById("bilansLineChart");
   
-  new Chart(bilansCtx, {
-    type: "line",
-    data: {
-      labels: [
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun",
-      ],
-      datasets: [
-        {
-          label: "Money",
-          data: [
-            1259, 1242, 1226, 1211, 1197, 1184, 1171, 1160, 1149, 1139, 1133,
-            1122, 1115, 1106, 1099, 1090, 1086, 1080, 1075, 1070, 1065, 1061,
-            1057, 1053, 1049, 1046, 1043, 1040,
-          ],
-          fill: false,
-          borderColor: "rgb(75, 192, 192)",
-          tension: 0.1,
-        },
-        {
-          label: "Expenses",
-          data: [
-            27, 207, 209, 271, 185, 274, 134, 274, 186, 70, 102, 242, 136, 22,
-            210, 184, 202, 228, 273, 26, 266, 263, 225, 243, 93, 208, 148, 163,
-          ],
-          fill: false,
-          borderColor: "rgb(255, 99, 132)",
-          tension: 0.1,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+  // new Chart(bilansCtx, {
+  //   type: "line",
+  //   data: {
+  //     labels: [
+  //       "Mon",
+  //       "Tue",
+  //       "Wed",
+  //       "Thu",
+  //       "Fri",
+  //       "Sat",
+  //       "Sun",
+  //       "Mon",
+  //       "Tue",
+  //       "Wed",
+  //       "Thu",
+  //       "Fri",
+  //       "Sat",
+  //       "Sun",
+  //       "Mon",
+  //       "Tue",
+  //       "Wed",
+  //       "Thu",
+  //       "Fri",
+  //       "Sat",
+  //       "Sun",
+  //       "Mon",
+  //       "Tue",
+  //       "Wed",
+  //       "Thu",
+  //       "Fri",
+  //       "Sat",
+  //       "Sun",
+  //     ],
+  //     datasets: [
+  //       {
+  //         label: "Money",
+  //         data: [
+  //           1259, 1242, 1226, 1211, 1197, 1184, 1171, 1160, 1149, 1139, 1133,
+  //           1122, 1115, 1106, 1099, 1090, 1086, 1080, 1075, 1070, 1065, 1061,
+  //           1057, 1053, 1049, 1046, 1043, 1040,
+  //         ],
+  //         fill: false,
+  //         borderColor: "rgb(75, 192, 192)",
+  //         tension: 0.1,
+  //       },
+  //       {
+  //         label: "Expenses",
+  //         data: [
+  //           27, 207, 209, 271, 185, 274, 134, 274, 186, 70, 102, 242, 136, 22,
+  //           210, 184, 202, 228, 273, 26, 266, 263, 225, 243, 93, 208, 148, 163,
+  //         ],
+  //         fill: false,
+  //         borderColor: "rgb(255, 99, 132)",
+  //         tension: 0.1,
+  //       },
+  //     ],
+  //   },
+  //   options: {
+  //     responsive: true,
+  //     maintainAspectRatio: false,
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true,
+  //       },
+  //     },
+  //   },
+  // });
   
   
   // Napisz tutaj funkcję, która dodaje klasę do inputa, który nie został wypełniony

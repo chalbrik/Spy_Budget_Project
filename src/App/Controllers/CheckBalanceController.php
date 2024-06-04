@@ -5,15 +5,55 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Framework\TemplateEngine;
+use App\Services\TransactionService;
 
 class CheckBalanceController
 {
-    public function __construct(private TemplateEngine $view)
+    public function __construct(private TemplateEngine $view, private TransactionService $transactionService)
     {
     }
 
     public function checkBalance()
     {
-        echo $this->view->render("/check-balance.php");
+
+        //tutaj trzeba wcześniej zastosowac metody, które wysyłają zapytania do bazy danych o dane dotyczące przychodów i wydatków aby móc je wyświeltlać na stronie
+
+        $transactionsData = $this->transactionService->getTransactionsData();
+
+        //dd($transactionsData);
+
+        //muszę tutaj zrobić przynajmniej 6 operacji, gdzie wyciągam poszczególne dane
+        //totalIncomesAmount
+        //totalExpensesAmount
+        //incomesValues jako tablice
+        //incomesLabels jako tablice
+        //expensesValues jako tablicę
+        //expensesLabels jako tablicę
+
+        $totalIncomesAmount = $transactionsData['total_incomes_amount'];
+
+        $totalExpensesAmount = $transactionsData['total_expenses_amount'];
+
+        $incomesLabels = $transactionsData['incomes_labels'];
+
+        $incomesValues = $transactionsData['incomes_values'];
+
+        $expensesLabels = $transactionsData['expenses_labels'];
+
+        $expensesValues = $transactionsData['expenses_values'];
+
+
+
+        echo $this->view->render(
+            "/check-balance.php",
+            [
+                'totalIncomesAmount' => $totalIncomesAmount,
+                'totalExpensesAmount' => $totalExpensesAmount,
+                'incomesLabels' => $incomesLabels,
+                'incomesValues' => $incomesValues,
+                'expensesLabels' => $expensesLabels,
+                'expensesValues' => $expensesValues,
+            ]
+        );
     }
 }

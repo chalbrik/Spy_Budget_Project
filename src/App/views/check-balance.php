@@ -3,12 +3,13 @@
 <main class="check-balance-page">
     <div class="check-balance-main-container">
 
-        <form id="time-frame-form" class="period-for-data" action="./check-balance.php" method="post">
+        <form id="time-frame-form" class="period-for-data" action="/check-balance" method="POST">
+            <?php include $this->resolve('partials/_csrf.php'); ?>
             <label for="time-period">Select desired period for data</label>
             <select id="time-period" name="date" onchange="submitForm()">
-                <option value="all-history">All history</option>
-                <option value="current-month">Current month</option>
-                <option value="previous-month">Previous month</option>
+                <option value="all-history" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'all-history') ? 'selected' : ''; ?>>All history</option>
+                <option value="current-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'current-month') ? 'selected' : ''; ?>>Current month</option>
+                <option value="previous-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'previous-month') ? 'selected' : ''; ?>>Previous month</option>
                 <!-- <option value="current-year">Current year</option> -->
                 <!-- <option value="custom-date">Custom date</option> -->
             </select>
@@ -19,14 +20,14 @@
                 <div class="chart">
                     <canvas id="incomeDoughnutChart" class="incomes-doughnut-chart"></canvas>
                 </div>
-                <div class="chart-sum-value">Total: pln</div>
+                <div class="chart-sum-value">Total: <?php echo e($totalIncomesAmount); ?> pln</div>
             </div>
             <div class="expenses-charts">
                 <div class="chart-name">Expenses</div>
                 <div class="chart">
                     <canvas id="expensesDoughnutChart" class="expenses-doughnut-chart"></canvas>
                 </div>
-                <div class="chart-sum-value">Total: pln</div>
+                <div class="chart-sum-value">Total: <?php echo e($totalExpensesAmount); ?> pln</div>
             </div>
         </div>
         <div class="bilans-chart">
@@ -35,5 +36,16 @@
     </div>
     </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    //tworze zmienną globalną dla nazw kategorii moich wykresów
+    var incomesLabels = <?php echo json_encode($incomesLabels); ?>;
+    var incomesValues = <?php echo json_encode($incomesValues); ?>;
+    var expensesLabels = <?php echo json_encode($expensesLabels); ?>;
+    var expensesValues = <?php echo json_encode($expensesValues); ?>;
+</script>
+
+
 
 <?php include $this->resolve("partials/_footer.php") ?>

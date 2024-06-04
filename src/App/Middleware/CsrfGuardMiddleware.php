@@ -25,6 +25,9 @@ class CsrfGuardMiddleware implements MiddlewareInterface
 
         unset($_SESSION['token']);
 
+        // Generate a new CSRF token
+        //$_SESSION['token'] = bin2hex(random_bytes(32));
+
         $next();
     }
 }
