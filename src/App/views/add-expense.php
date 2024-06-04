@@ -2,8 +2,9 @@
 <main>
     <div class="transaction-form">
         <h2>Add expense</h2>
-        <form class="input-form" action="add-expense-to-database.php" method="post">
-
+        <form class="input-form" action="/add-expense" method="POST">
+            <?php include $this->resolve('partials/_csrf.php'); ?>
+            <input type="hidden" name="form_type" value="expense">
             <div class="form-amount-date">
                 <div class="form-input">
                     <span>Amount</span>

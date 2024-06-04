@@ -3,8 +3,9 @@
 <main>
     <div class="transaction-form">
         <h2>Add income</h2>
-        <form class="input-form" action="add-income-to-database.php" method="post">
-
+        <form class="input-form" method="POST" action="/add-income">
+            <?php include $this->resolve('partials/_csrf.php'); ?>
+            <input type="hidden" name="form_type" value="income">
             <div class="form-amount-date">
                 <div class="form-input">
                     <span>Amount</span>
@@ -15,7 +16,6 @@
                 <div class="form-input">
                     <span>Date</span>
                     <input class="date-input" type="date" id="start" name="transaction-date" value="" min="" max="" />
-
                 </div>
             </div>
 

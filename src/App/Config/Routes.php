@@ -25,9 +25,11 @@ function registerRoutes(App $app)
 
     $app->get('/userpage', [MainUserPageController::class, 'mainUserPage'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/add-income', [AddIncomeController::class, 'addIncome'])->add(AuthRequiredMiddleware::class);
+    $app->get('/add-income', [AddIncomeController::class, 'addIncomePage'])->add(AuthRequiredMiddleware::class);
+    $app->post('/add-income', [AddIncomeController::class, 'addIncome'])->add(AuthRequiredMiddleware::class);
 
-    $app->get('/add-expense', [AddExpenseController::class, 'addExpense'])->add(AuthRequiredMiddleware::class);
+    $app->get('/add-expense', [AddExpenseController::class, 'addExpensePage'])->add(AuthRequiredMiddleware::class);
+    $app->post('/add-expense', [AddExpenseController::class, 'addExpense'])->add(AuthRequiredMiddleware::class);
 
     $app->get('/check-balance', [CheckBalanceController::class, 'checkBalance'])->add(AuthRequiredMiddleware::class);
 
