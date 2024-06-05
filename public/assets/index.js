@@ -24,6 +24,47 @@
   //   document.querySelector(".nav-name-add").nextElementSibling.hidden = true;
   // });
 
+  //skrypt kursora
+  document.addEventListener('mousemove', function(e) {
+    var cursor = document.getElementById('customCursor');
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+});
+
+document.querySelectorAll('input').forEach((inputItem) => {
+    inputItem.addEventListener("mouseover", ()=>{
+      document.querySelector("#customCursor").classList.remove("custom-cursor");
+  });
+});
+
+document.querySelectorAll('input').forEach((inputItem) => {
+  inputItem.addEventListener("mouseout", ()=>{
+    document.querySelector("#customCursor").classList.add("custom-cursor");
+});
+});
+
+document.querySelectorAll('button').forEach((inputItem) => {
+  inputItem.addEventListener("mouseover", ()=>{
+    document.querySelector("#customCursor").classList.remove("custom-cursor");
+});
+});
+
+document.querySelectorAll('button').forEach((inputItem) => {
+inputItem.addEventListener("mouseout", ()=>{
+  document.querySelector("#customCursor").classList.add("custom-cursor");
+});
+});
+
+  document.addEventListener("click", ()=>{
+    document.querySelector("#customCursor").classList.add("hide-cursor");
+
+    setTimeout(() => {
+      customCursor.classList.remove('hide-cursor');
+  }, 500); // 1000 milisekund = 1 sekunda
+  });
+
+//koniec skryptu działania kursora
+
   
   function submitForm() {
     document.getElementById('time-frame-form').submit();
@@ -55,6 +96,27 @@ document.querySelectorAll(".home-page-description").forEach((item) => {
     });
 });
 
+//koniec animacji ikonek
+
+//usuwanie czerwonego stylu po kliknięciu na input
+
+document.querySelectorAll(".single-form-input").forEach((item) => {
+  item.addEventListener("mouseout", ()=>{
+    if(item.children.length > 1){
+      item.children[0].classList.remove("main-page-icon-hovered");
+      item.children[1].classList.remove("home-page-description-decoration-hovered");
+    }
+    });
+});
+
+
+document.querySelectorAll(".single-form-input").forEach((item) => {
+  item.addEventListener("focus", ()=> {
+    item.classList.remove("application-form-value-empty");
+  });
+});
+
+//koniec usuwania czerwonego styli po kliknięciu na input
 
 
 

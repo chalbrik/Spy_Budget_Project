@@ -40,7 +40,7 @@
                         <?php include $this->resolve('partials/_csrf.php'); ?>
                         <div class="input-field">
                             <span class="input-name">E-mail address</span>
-                            <input type="text" name="email-login" value="<?php echo e($oldFormData['email-login'] ?? ''); ?>" />
+                            <input type="text" name="email-login" value="<?php echo e($oldFormData['email-login'] ?? ''); ?>" class="single-form-input <?php echo array_key_exists('email-login', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('email-login', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['email-login'][0]); ?>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">Password</span>
-                            <input type="text" name="password-login" />
+                            <input type="text" name="password-login" class="single-form-input <?php echo array_key_exists('password-login', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('password-login', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['password-login'][0]); ?>
@@ -68,7 +68,7 @@
                         <?php include $this->resolve('partials/_csrf.php'); ?>
                         <div class="input-field">
                             <span class="input-name">Name</span>
-                            <input type="text" name="username-register" value="<?php echo e($oldFormData['username-register'] ?? ''); ?>" />
+                            <input type="text" name="username-register" value="<?php echo e($oldFormData['username-register'] ?? ''); ?>" class="single-form-input <?php echo array_key_exists('username-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('username-register', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['username-register'][0]); ?>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">E-mail address</span>
-                            <input type="text" name="email-register" value="<?php echo e($oldFormData['email-register'] ?? ''); ?>" />
+                            <input type="text" name="email-register" value="<?php echo e($oldFormData['email-register'] ?? ''); ?>" class="single-form-input <?php echo array_key_exists('email-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('email-register', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['email-register'][0]); //tu jest jakiś błąd z przekazywaniem błedów do zmiennej errors 
@@ -87,7 +87,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">Password</span>
-                            <input type="text" name="password-register" />
+                            <input type="text" name="password-register" class="single-form-input <?php echo array_key_exists('password-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('password-register', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['password-register'][0]); ?>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">Repeat password</span>
-                            <input type="text" name="password-repeat-register" />
+                            <input type="text" name="password-repeat-register" class="single-form-input <?php echo array_key_exists('password-repeat-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('password-repeat-register', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['password-repeat-register'][0]); ?>

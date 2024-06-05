@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <div class="custom-cursor" id="customCursor"></div>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-bg-color custom-position">
             <!-- <button class="navbar-toggler navbar-toggler-custom" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
