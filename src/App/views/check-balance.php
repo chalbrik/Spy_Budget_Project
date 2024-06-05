@@ -2,18 +2,27 @@
 
 <main class="check-balance-page">
     <div class="check-balance-main-container">
+        <div class="period-for-data">
+            <div>
+                <span class="user-greeting">Hello</span>
+                <span class="user-greeting user-name"><?php echo e($username) ?></span>
 
-        <form id="time-frame-form" class="period-for-data" action="/check-balance" method="POST">
-            <?php include $this->resolve('partials/_csrf.php'); ?>
-            <label for="time-period">Select desired period for data</label>
-            <select id="time-period" name="date" onchange="submitForm()">
-                <option value="all-history" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'all-history') ? 'selected' : ''; ?>>All history</option>
-                <option value="current-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'current-month') ? 'selected' : ''; ?>>Current month</option>
-                <option value="previous-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'previous-month') ? 'selected' : ''; ?>>Previous month</option>
-                <!-- <option value="current-year">Current year</option> -->
-                <!-- <option value="custom-date">Custom date</option> -->
-            </select>
-        </form>
+            </div>
+            <form id="time-frame-form" action="/check-balance" method="POST">
+                <?php include $this->resolve('partials/_csrf.php'); ?>
+                <label for="time-period">Select desired period for data</label>
+                <select id="time-period" name="date" onchange="submitForm()">
+                    <option value="all-history" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'all-history') ? 'selected' : ''; ?>>All history</option>
+                    <option value="current-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'current-month') ? 'selected' : ''; ?>>Current month</option>
+                    <option value="previous-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'previous-month') ? 'selected' : ''; ?>>Previous month</option>
+                    <!-- <option value="current-year">Current year</option> -->
+                    <!-- <option value="custom-date">Custom date</option> -->
+                </select>
+            </form>
+        </div>
+        <div class="check-balance-description">
+
+        </div>
         <div class="incomes-expenses-charts">
             <div class="incomes-charts">
                 <div class="chart-name">Incomes</div>

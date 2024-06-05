@@ -90,4 +90,13 @@ class UserService
 
         session_regenerate_id();
     }
+
+    public function getUsername(): array
+    {
+        $userId = $_SESSION['user'];
+
+        return $this->db->query("SELECT user_name FROM user_data WHERE user_id = :userId", [
+            'userId' => $userId
+        ])->find();
+    }
 }

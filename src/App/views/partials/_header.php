@@ -27,15 +27,15 @@
                             <img class="logo" src="/assets/icons/pie-chart-logo.svg" alt="Logo" />
                             <a class="nav-link custom-font-logo" href="/userpage">spy <br />budget</span> </a>
                         </li>
+                        <li class="nav-item nav-item-custom-postion">
+                            <img id="check-balance" class="nav-icon" src="/assets/icons/graph-up-arrow.svg" alt="Check balance" />
+                            <a class="nav-link custom-font nav-link-check-balance nav-name-check-balance" href="/check-balance">Check balance</a>
+                        </li>
                         <li class="nav-item-add nav-item dropdown nav-item-custom-postion">
                             <img id="add" class="nav-icon" src="/assets/icons/plus-lg.svg" alt="Add" />
                             <a class="nav-link custom-font nav-name-add" href="/add-income">Income</a>
                             <p class="custom-font"> / </p>
                             <a class="nav-link custom-font nav-name-add" href="/add-expense">Expense</a>
-                        </li>
-                        <li class="nav-item nav-item-custom-postion">
-                            <img id="check-balance" class="nav-icon" src="/assets/icons/graph-up-arrow.svg" alt="Check balance" />
-                            <a class="nav-link custom-font nav-link-check-balance nav-name-check-balance" href="/check-balance">Check balance</a>
                         </li>
                         <li class="nav-item nav-item-custom-postion">
                             <img id="track-expenses" class="nav-icon" src="/assets/icons/calculator.svg" alt="Track expenses" />

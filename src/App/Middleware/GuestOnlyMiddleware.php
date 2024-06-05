@@ -12,7 +12,7 @@ class GuestOnlyMiddleware implements MiddlewareInterface
     {
 
         if (!empty($_SESSION['user'])) {
-            redirectTo('/userpage');
+            redirectTo('/check-balance');
         }
 
         $next();
