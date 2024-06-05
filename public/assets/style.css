@@ -336,6 +336,16 @@ main.check-balance-page {
     margin: 0 0 0 10px;
 }
 
+
+.home-page-description-decoration-hovered{
+    text-decoration: underline;
+    /* color: #F2A616; */
+}
+
+.main-page-icon-hovered{
+    fill: #F2A616 !important;
+}
+
 .pointer-graphics{
     height: 20px;
     width: 20px;

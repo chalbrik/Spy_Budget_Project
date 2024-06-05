@@ -33,6 +33,31 @@
     var selectElement = document.getElementById('time-period');
     selectElement.addEventListener('change', submitForm);
 });
+
+//animacje ikonek na stronie głównej
+
+document.querySelectorAll(".home-page-description").forEach((item) => {
+  item.addEventListener("mouseover", ()=>{
+    if(item.children.length > 1){
+      item.children[0].classList.add("main-page-icon-hovered");
+      item.children[1].classList.add("home-page-description-decoration-hovered");
+    }
+    
+    });
+});
+
+document.querySelectorAll(".home-page-description").forEach((item) => {
+  item.addEventListener("mouseout", ()=>{
+    if(item.children.length > 1){
+      item.children[0].classList.remove("main-page-icon-hovered");
+      item.children[1].classList.remove("home-page-description-decoration-hovered");
+    }
+    });
+});
+
+
+
+
   
   //doughnut - incomes
   const incomesCtx = document.getElementById("incomeDoughnutChart");
