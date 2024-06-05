@@ -119,6 +119,15 @@ document.querySelectorAll(".single-form-input").forEach((item) => {
 //koniec usuwania czerwonego styli po kliknięciu na input
 
 
+//rozwijanie bloku tekstu z informacjami o stronie dla użytkownika
+
+document.querySelector(".check-balance-description-button").addEventListener("click", ()=>{
+  document.querySelector(".check-balance-description").classList.toggle("enable");
+
+});
+
+//koniec kodu z blokiem tekstu z informajami o stronie dla użytkownika
+
 
   
   //doughnut - incomes
@@ -200,10 +209,10 @@ document.querySelectorAll(".single-form-input").forEach((item) => {
     },
   });
   
-  //line - bilans
-  // const bilansCtx = document.getElementById("bilansLineChart");
+  //line - savings
+  // const savingsCtx = document.getElementById("savingsLineChart");
   
-  // new Chart(bilansCtx, {
+  // new Chart(savingsCtx, {
   //   type: "line",
   //   data: {
   //     labels: [

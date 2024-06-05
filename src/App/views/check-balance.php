@@ -20,8 +20,13 @@
                 </select>
             </form>
         </div>
+        <div class="check-balance-description-button"></div>
         <div class="check-balance-description">
-
+            <p>dadsfdsf</p>
+            <p>dadsfdsf</p>
+            <p>dadsfdsf</p>
+            <p>dadsfdsf</p>
+            <p>dadsfdsf</p>
         </div>
         <div class="incomes-expenses-charts">
             <div class="incomes-charts">
@@ -29,18 +34,23 @@
                 <div class="chart">
                     <canvas id="incomeDoughnutChart" class="incomes-doughnut-chart"></canvas>
                 </div>
-                <div class="chart-sum-value">Total: <?php echo e($totalIncomesAmount); ?> pln</div>
+                <div class="chart-sum-value">Total : <?php echo e($totalIncomesAmount); ?> pln</div>
             </div>
             <div class="expenses-charts">
                 <div class="chart-name">Expenses</div>
                 <div class="chart">
                     <canvas id="expensesDoughnutChart" class="expenses-doughnut-chart"></canvas>
                 </div>
-                <div class="chart-sum-value">Total: <?php echo e($totalExpensesAmount); ?> pln</div>
+                <div class="chart-sum-value">Total : <?php echo e($totalExpensesAmount); ?> pln</div>
             </div>
         </div>
-        <div class="bilans-chart">
-            <canvas id="bilansLineChart" class="bilans-line-chart"></canvas>
+        <div class="bilans-score <?php echo ($totalIncomesAmount - $totalExpensesAmount >= 0) ? 'bilans-plus' : 'bilans-minus' ?>">
+            <span>Your bilans score : </span>
+            <span class="bilans-score-value"><?php echo e($totalIncomesAmount - $totalExpensesAmount); ?></span>
+            <span class="bilans-score-value">pln</span>
+        </div>
+        <div class="savings-chart">
+            <canvas id="savingsLineChart" class="savings-line-chart"></canvas>
         </div>
     </div>
     </div>
