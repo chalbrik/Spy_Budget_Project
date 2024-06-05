@@ -75,6 +75,8 @@ class TransactionService
         $currentUserId = $_SESSION['user'];
         $transactionsdata = [];
 
+        var_dump($_POST['date']);
+
         if (isset($_POST['date'])) {
             $selectedTimeFrame = $_POST['date'];
             // Zapisanie wybranej opcji do sesji
@@ -198,6 +200,7 @@ class TransactionService
         $transactionsdata['incomes_values'] = $incomesValues;
         $transactionsdata['expenses_labels'] = $expensesLabels;
         $transactionsdata['expenses_values'] = $expensesValues;
+
 
         return  $transactionsdata;
     }

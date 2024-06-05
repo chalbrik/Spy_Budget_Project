@@ -3,9 +3,10 @@
 <main class="check-balance-page">
     <div class="check-balance-main-container">
         <div class="period-for-data">
-            <div>
-                <span class="user-greeting">Hello</span>
+            <div class="check-balance-description-button">
+                <span class="user-greeting">Hello </span>
                 <span class="user-greeting user-name"><?php echo e($username) ?></span>
+                <span class="user-greeting">, click here and see what you can do over here! </span>
 
             </div>
             <form id="time-frame-form" action="/check-balance" method="POST">
@@ -20,13 +21,11 @@
                 </select>
             </form>
         </div>
-        <div class="check-balance-description-button"></div>
+        <!-- <div class="check-balance-description-button"></div> -->
         <div class="check-balance-description">
-            <p>dadsfdsf</p>
-            <p>dadsfdsf</p>
-            <p>dadsfdsf</p>
-            <p>dadsfdsf</p>
-            <p>dadsfdsf</p>
+            <p class="">1. Track your income and expenses -><span class=""> Pie charts visualize your income and expenses for the selected period.</span></p>
+            <p>2. Select the analysis period -><span> Choose the period you are interested in from the dropdown menu to see data from the current month, previous month, or entire history.</span></p>
+            <p>3. Analyze your financial balance -><span> Check how much you earn and spend to better manage your budget.</span></p>
         </div>
         <div class="incomes-expenses-charts">
             <div class="incomes-charts">
