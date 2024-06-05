@@ -333,7 +333,7 @@ main.check-balance-page {
 }
 
 .home-page-description>p{
-    margin: 0 0 0 0;
+    margin: 0 0 0 10px;
 }
 
 .pointer-graphics{
@@ -580,7 +580,7 @@ fieldset.category {
     font-style: normal;
     font-size: 1.3rem;
 
-    margin: 10px 0 10px 0;
+    margin: 10px 0 0 0;
 }
 
 fieldset.category legend {

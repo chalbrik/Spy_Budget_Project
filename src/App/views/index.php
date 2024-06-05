@@ -9,6 +9,7 @@
                 <h1>budget</h1>
             </div>
             <div class="home-page-description">
+                <img src="/assets/icons/coin.svg" alt="Coin">
                 <p class="description">Manage your personal finances.</p>
             </div>
             <div class="home-page-description">

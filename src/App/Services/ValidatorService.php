@@ -47,6 +47,7 @@ class ValidatorService
         $this->validator->validate($formData, [
             'amount' => ['required', 'numeric'],
             'transaction-date' => ['required', 'dateFormat:Y-m-d'],
+            'transaction-category' => ['required'],
             'note' => ['lengthMax:255']
         ]);
     }

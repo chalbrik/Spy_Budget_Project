@@ -27,24 +27,29 @@
                     <?php endif; ?>
                 </div>
             </div>
+            <div>
+                <fieldset class="form-input category">
+                    <legend>Pick category:</legend>
 
-            <fieldset class="form-input category">
-                <legend>Pick category:</legend>
-
-                <div class="radio-row">
-                    <?php if (!empty($categories)) : ?>
-                        <?php foreach ($categories as $expenseCategory) : ?>
-                            <div class="form-check">
-                                <input type="radio" id="<?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?>" name="transaction-category" value="<?php echo htmlspecialchars($expenseCategory['expense_category_assigned_to_user_id']); ?>" class="form-check-input">
-                                <label for="<?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?>" class="form-check-label"><?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?></label>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <p>No categories available.</p>
-                    <?php endif; ?>
-                </div>
-            </fieldset>
-
+                    <div class="radio-row">
+                        <?php if (!empty($categories)) : ?>
+                            <?php foreach ($categories as $expenseCategory) : ?>
+                                <div class="form-check">
+                                    <input type="radio" id="<?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?>" name="transaction-category" value="<?php echo htmlspecialchars($expenseCategory['expense_category_assigned_to_user_id']); ?>" class="form-check-input">
+                                    <label for="<?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?>" class="form-check-label"><?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <p>No categories available.</p>
+                        <?php endif; ?>
+                    </div>
+                </fieldset>
+                <?php if (array_key_exists('transaction-category', $errors)) : ?>
+                    <span class="input-name validation-error-message">
+                        <?php echo e($errors['transaction-category'][0]); ?>
+                    </span>
+                <?php endif; ?>
+            </div>
             <div class="form-input-note">
                 <span>Note</span>
                 <textarea class="form-control" name="note" aria-label="With textarea"></textarea>

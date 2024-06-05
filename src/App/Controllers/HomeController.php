@@ -27,7 +27,9 @@ class HomeController
 
     public function registerUser()
     {
+
         $this->validatorService->validateRegister($_POST);
+
         $this->userService->isEmailTaken($_POST['email-register']);
 
         $this->userService->create($_POST); //tworzenie użytkownika za pomocą userService
