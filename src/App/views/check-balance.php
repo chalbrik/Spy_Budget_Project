@@ -23,7 +23,7 @@
         </div>
         <!-- <div class="check-balance-description-button"></div> -->
         <div class="check-balance-description">
-            <p class="">1. Track your income and expenses -><span class=""> Pie charts visualize your income and expenses for the selected period.</span></p>
+            <p class="">1. Track your income and expenses -><span class=""> Pie charts visualize your income and expenses for the selected period. Current month is set as the default option.</span></p>
             <p>2. Select the analysis period -><span> Choose the period you are interested in from the dropdown menu to see data from the current month, previous month, or entire history.</span></p>
             <p>3. Analyze your financial balance -><span> Check how much you earn and spend to better manage your budget.</span></p>
         </div>
