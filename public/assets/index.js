@@ -116,6 +116,23 @@ document.querySelectorAll(".single-form-input").forEach((item) => {
   });
 });
 
+
+document.querySelector(".amount-input").addEventListener("focus", ()=> {
+  document.querySelector(".amount-input").classList.remove("amount-input-error");
+  document.querySelector(".currency").classList.remove("currency-error");
+});
+
+
+document.querySelector(".date-input").addEventListener("focus", ()=> {
+  document.querySelector(".date-input").classList.remove("date-input-error");
+});
+
+document.querySelector(".category").addEventListener("click", ()=> {
+  document.querySelector(".category").classList.remove("category-error");
+});
+
+
+
 //koniec usuwania czerwonego styli po kliknięciu na input
 
 
@@ -124,6 +141,10 @@ document.querySelectorAll(".single-form-input").forEach((item) => {
 document.querySelector(".check-balance-description-button").addEventListener("click", ()=>{
   document.querySelector(".check-balance-description").classList.toggle("enable");
 
+});
+
+document.querySelector(".check-balance-description-button").addEventListener("click", ()=>{
+  document.querySelector(".check-balance-description-button").classList.toggle("clicked");
 });
 
 //koniec kodu z blokiem tekstu z informajami o stronie dla użytkownika

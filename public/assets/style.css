@@ -576,7 +576,7 @@ button.sign-up-button:hover {
 .form-input>input {
     height: 35px;
     width: 90%;
-    margin: 5px 0 0 0;
+    margin: 5px 0 5px 0;
     padding: 0 15px 0 15px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -597,6 +597,18 @@ button.sign-up-button:hover {
     border-bottom: .15em solid black !important;
     height: 100%;
     width: 60%;
+    margin-bottom: 5px;
+}
+
+.amount-input-error {
+    
+    border-bottom: .15em solid #FF5E00 !important;
+    color: #FF5E00;
+    background-image: url(icons/icon-error.svg);
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px 15px;
+    
 }
 
 .date-input {
@@ -605,6 +617,16 @@ button.sign-up-button:hover {
     font-weight: 400;
     font-style: normal;
     font-size: 1.3rem;
+    
+}
+
+.date-input-error {
+    border: 2px solid #FF5E00 !important;
+    color: #FF5E00;
+    background-image: url(icons/icon-error.svg);
+    background-repeat: no-repeat;
+    background-position: right 50px center;
+    background-size: 15px 15px;
 }
 
 span.currency {
@@ -614,6 +636,14 @@ span.currency {
     font-style: normal;
     font-size: 1.3rem;
     margin: 0 15px 0 15px;
+}
+
+span.currency-error {
+    color: #FF5E00;
+}
+
+div.form-input-category-container{
+    width: 100%;
 }
 
 fieldset.category {
@@ -627,8 +657,16 @@ fieldset.category {
     margin: 10px 0 0 0;
 }
 
+fieldset.category-error {
+    border: 2px solid #FF5E00
+}
+
 fieldset.category legend {
     font-size: 1.3rem;
+}
+
+fieldset.category-error legend {
+    color: #FF5E00
 }
 
 .form-input-note {
@@ -768,10 +806,18 @@ fieldset.category legend {
 
 }
 
+.check-balance-description-button:hover{
+    background: linear-gradient(to right, rgb(242, 166, 22,0.2), rgba(242, 166, 22, 0));
+}
+
+.check-balance-description-button.clicked{
+    background: linear-gradient(to right, rgb(242, 166, 22,0.2), rgba(242, 166, 22, 0));
+}
+
 .check-balance-description{
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1s ease-in-out;
+    transition: max-height 1s ease-out;
 
     background-color: none;
     border: #FF5E00 solid 2px;
@@ -782,6 +828,8 @@ fieldset.category legend {
     font-optical-sizing: auto;
     font-weight: 500;
     font-size: 16px;
+
+    padding: 0 5px 0 5px;
     
 }
 

@@ -8,8 +8,8 @@
             <div class="form-amount-date">
                 <div class="form-input">
                     <span>Amount</span>
-                    <div class="amount-input-currency"><input class="amount-input" type="text" name="amount" />
-                        <span class="currency">pln</span>
+                    <div class="amount-input-currency"><input class="amount-input <?php echo array_key_exists('amount', $errors) ? 'amount-input-error' : ''; ?>" type="text" name="amount"" type=" text" name="amount" />
+                        <span class="currency <?php echo array_key_exists('amount', $errors) ? 'currency-error' : ''; ?>">pln</span>
                     </div>
                     <?php if (array_key_exists('amount', $errors)) : ?>
                         <span class="input-name validation-error-message">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-input">
                     <span>Date</span>
-                    <input class="date-input" type="date" id="start" name="transaction-date" value="" min="" max="" />
+                    <input class="date-input <?php echo array_key_exists('transaction-date', $errors) ? 'date-input-error' : ''; ?>" type="date" id="start" name="transaction-date" value="" min="" max="" />
                     <?php if (array_key_exists('transaction-date', $errors)) : ?>
                         <span class="input-name validation-error-message">
                             <?php echo e($errors['transaction-date'][0]); ?>
@@ -27,8 +27,8 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div>
-                <fieldset class="form-input category">
+            <div class="form-input-category-container">
+                <fieldset class="form-input category <?php echo array_key_exists('transaction-category', $errors) ? 'category-error' : ''; ?>">
                     <legend>Pick category:</legend>
 
                     <div class="radio-row">

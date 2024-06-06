@@ -9,8 +9,8 @@
             <div class="form-amount-date">
                 <div class="form-input">
                     <span>Amount</span>
-                    <div class="amount-input-currency"><input class="amount-input" type="text" name="amount" />
-                        <span class="currency">pln</span>
+                    <div class="amount-input-currency"><input class="amount-input <?php echo array_key_exists('amount', $errors) ? 'amount-input-error' : ''; ?>" type="text" name="amount" />
+                        <span class="currency <?php echo array_key_exists('amount', $errors) ? 'currency-error' : ''; ?>">pln</span>
                     </div>
                     <?php if (array_key_exists('amount', $errors)) : ?>
                         <span class="input-name validation-error-message">
@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-input">
                     <span>Date</span>
-                    <input class="date-input" type="date" id="start" name="transaction-date" value="" min="" max="" />
+                    <input class="date-input <?php echo array_key_exists('transaction-date', $errors) ? 'date-input-error' : ''; ?>" type="date" id="start" name="transaction-date" value="" min="" max="" />
                     <?php if (array_key_exists('transaction-date', $errors)) : ?>
                         <span class="input-name validation-error-message">
                             <?php echo e($errors['transaction-date'][0]); ?>
@@ -29,22 +29,29 @@
                 </div>
             </div>
 
-            <fieldset class="form-input category">
-                <legend>Pick category:</legend>
+            <div class="form-input-category-container">
+                <fieldset class="form-input category <?php echo array_key_exists('transaction-category', $errors) ? 'category-error' : ''; ?>">
+                    <legend>Pick category:</legend>
 
-                <div class="radio-row">
-                    <?php if (!empty($categories)) : ?>
-                        <?php foreach ($categories as $incomeCategory) : ?>
-                            <div class="form-check">
-                                <input type="radio" id="<?php echo htmlspecialchars($incomeCategory['income_category_name']); ?>" name="transaction-category" value="<?php echo htmlspecialchars($incomeCategory['income_category_assigned_to_user_id']); ?>" class="form-check-input">
-                                <label for="<?php echo htmlspecialchars($incomeCategory['income_category_name']); ?>" class="form-check-label"><?php echo htmlspecialchars($incomeCategory['income_category_name']); ?></label>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <p>No categories available.</p>
-                    <?php endif; ?>
-                </div>
-            </fieldset>
+                    <div class="radio-row">
+                        <?php if (!empty($categories)) : ?>
+                            <?php foreach ($categories as $incomeCategory) : ?>
+                                <div class="form-check">
+                                    <input type="radio" id="<?php echo htmlspecialchars($incomeCategory['income_category_name']); ?>" name="transaction-category" value="<?php echo htmlspecialchars($incomeCategory['income_category_assigned_to_user_id']); ?>" class="form-check-input">
+                                    <label for="<?php echo htmlspecialchars($incomeCategory['income_category_name']); ?>" class="form-check-label"><?php echo htmlspecialchars($incomeCategory['income_category_name']); ?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <p>No categories available.</p>
+                        <?php endif; ?>
+                    </div>
+                </fieldset>
+                <?php if (array_key_exists('transaction-category', $errors)) : ?>
+                    <span class="input-name validation-error-message">
+                        <?php echo e($errors['transaction-category'][0]); ?>
+                    </span>
+                <?php endif; ?>
+            </div>
 
             <div class="form-input-note">
                 <span>Note</span>
