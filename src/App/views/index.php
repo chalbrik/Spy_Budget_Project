@@ -38,8 +38,8 @@
                 </svg>
                 <p class="description">Create a new account from scratch or use the demo account with the following credentials:</p>
             </div>
-            <p class="description">email: harrypotter@gmail.com</p>
-            <p class="description">password: harrypotter</p>
+            <p class="description" style="margin-top: 0;">email: harrypotter@gmail.com</p>
+            <p class="description" style="margin-top: 0;">password: harrypotter</p>
 
 
         </div>

@@ -38,7 +38,7 @@ class HomeController
 
         $this->userService->assignDefaultCategoriesToUser();
 
-        redirectTo('/');
+        redirectTo('/registered');
     }
 
     public function loginUser()

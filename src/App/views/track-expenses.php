@@ -1,1 +1,5 @@
-<h1>Hello track expenses</h1>
+<?php include $this->resolve("partials/_header.php") ?>
+
+<main>Track expenses - not avaible yet</main>
+
+<?php include $this->resolve("partials/_footer.php") ?>

@@ -31,6 +31,6 @@ class AddIncomeController
 
         $this->transactionService->create($_POST);
 
-        redirectTo('/add-income');
+        redirectTo('/transaction-added');
     }
 }

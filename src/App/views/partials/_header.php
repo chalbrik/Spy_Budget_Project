@@ -25,7 +25,7 @@
                     <ul class="navbar-nav custom-width">
                         <li class="nav-item active custom-layout-logo">
                             <img class="logo" src="/assets/icons/pie-chart-logo.svg" alt="Logo" />
-                            <a class="nav-link custom-font-logo" href="/userpage">spy <br />budget</span> </a>
+                            <a class="nav-link custom-font-logo" href="/check-balance">spy <br />budget</span> </a>
                         </li>
                         <li class="nav-item nav-item-custom-postion">
                             <img id="check-balance" class="nav-icon" src="/assets/icons/graph-up-arrow.svg" alt="Check balance" />

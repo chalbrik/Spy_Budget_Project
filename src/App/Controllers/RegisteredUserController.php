@@ -6,14 +6,14 @@ namespace App\Controllers;
 
 use Framework\TemplateEngine;
 
-class MainUserPageController
+class RegisteredUserController
 {
     public function __construct(private TemplateEngine $view)
     {
     }
 
-    public function mainUserPage()
+    public function registeredPage()
     {
-        echo $this->view->render("/userpage.php");
+        echo $this->view->render("/registeredUser.php");
     }
 }

@@ -31,6 +31,6 @@ class AddExpenseController
 
         $this->transactionService->create($_POST);
 
-        redirectTo('/add-expense');
+        redirectTo('/transaction-added');
     }
 }

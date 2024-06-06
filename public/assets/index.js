@@ -116,22 +116,22 @@ document.querySelectorAll(".single-form-input").forEach((item) => {
   });
 });
 
+//musiałem tutaj dodać warunek, żeby sprawdzał czy element znajduje sie na stronie aby móc go nasłuchiwać, inaczej skrypt mi sie zatrzymywał i powodował błędy
+if(document.querySelector(".amount-input")){
+  document.querySelector(".amount-input").addEventListener("focus", ()=> {
+    document.querySelector(".amount-input").classList.remove("amount-input-error");
+    document.querySelector(".currency").classList.remove("currency-error");
+  });
 
-document.querySelector(".amount-input").addEventListener("focus", ()=> {
-  document.querySelector(".amount-input").classList.remove("amount-input-error");
-  document.querySelector(".currency").classList.remove("currency-error");
-});
-
-
-document.querySelector(".date-input").addEventListener("focus", ()=> {
-  document.querySelector(".date-input").classList.remove("date-input-error");
-});
-
-document.querySelector(".category").addEventListener("click", ()=> {
-  document.querySelector(".category").classList.remove("category-error");
-});
-
-
+  document.querySelector(".date-input").addEventListener("focus", ()=> {
+    document.querySelector(".date-input").classList.remove("date-input-error");
+  });
+  
+  document.querySelector(".category").addEventListener("click", ()=> {
+    document.querySelector(".category").classList.remove("category-error");
+  });
+  
+}
 
 //koniec usuwania czerwonego styli po kliknięciu na input
 
@@ -140,7 +140,6 @@ document.querySelector(".category").addEventListener("click", ()=> {
 
 document.querySelector(".check-balance-description-button").addEventListener("click", ()=>{
   document.querySelector(".check-balance-description").classList.toggle("enable");
-
 });
 
 document.querySelector(".check-balance-description-button").addEventListener("click", ()=>{

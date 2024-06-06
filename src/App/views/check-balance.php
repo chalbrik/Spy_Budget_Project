@@ -21,11 +21,11 @@
                 </select>
             </form>
         </div>
-        <!-- <div class="check-balance-description-button"></div> -->
         <div class="check-balance-description">
-            <p class="">1. Track your income and expenses -><span class=""> Pie charts visualize your income and expenses for the selected period. Current month is set as the default option.</span></p>
-            <p>2. Select the analysis period -><span> Choose the period you are interested in from the dropdown menu to see data from the current month, previous month, or entire history.</span></p>
-            <p>3. Analyze your financial balance -><span> Check how much you earn and spend to better manage your budget.</span></p>
+            <p class="">1. Add your transaction -><span class=""> If your account lacks transaction data, you can easily add entries in the <span style="font-weight: 500;">Income/Expense</span> tab.</span></p>
+            <p class="">2. Track your income and expenses -><span class=""> Pie charts visualize your income and expenses for the selected period. Current month is set as the default option.</span></p>
+            <p>3. Select the analysis period -><span> Choose the period you are interested in from the dropdown menu to see data from the current month, previous month, or entire history.</span></p>
+            <p>4. Analyze your financial balance -><span> Check how much you earn and spend to better manage your budget.</span></p>
         </div>
         <div class="incomes-expenses-charts">
             <div class="incomes-charts">
@@ -48,9 +48,9 @@
             <span class="bilans-score-value"><?php echo e($totalIncomesAmount - $totalExpensesAmount); ?></span>
             <span class="bilans-score-value">pln</span>
         </div>
-        <div class="savings-chart">
+        <!-- <div class="savings-chart">
             <canvas id="savingsLineChart" class="savings-line-chart"></canvas>
-        </div>
+        </div> -->
     </div>
     </div>
 </main>

@@ -74,6 +74,33 @@ header {
     color: black;
 }
 
+a.main-userpage-header-button{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 0;
+}
+
+a.main-userpage-header-button:hover{
+    cursor: pointer;
+}
+
+div.registered-page-position{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.registered-page-position > p{
+    text-align: center;
+}
+
 .custom-font:hover {
     color: #F2A616 !important;
 }
@@ -97,7 +124,8 @@ header {
 
 .custom-font-logo:hover {
 
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
+    cursor: none;
    
 }
 
