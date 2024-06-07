@@ -38,13 +38,14 @@ class TransactionService
         } else if ($formData['form_type'] == "expense") {
             $this->db->query(
                 "
-            INSERT INTO expenses(expense_amount, expense_date, expense_category_assigned_to_user_id, expense_note, user_id)
-            VALUES(:expenseAmount, :expenseDate, :expenseCategory, :expenseNote, :userId) 
+            INSERT INTO expenses(expense_amount, expense_date, expense_category_assigned_to_user_id, payment_method_assigned_to_user_id ,expense_note, user_id)
+            VALUES(:expenseAmount, :expenseDate, :expenseCategory, :paymentMethod, :expenseNote, :userId) 
             ",
                 [
                     'expenseAmount' => $formData['amount'],
                     'expenseDate' => $formData['transaction-date'],
                     'expenseCategory' => $formData['transaction-category'],
+                    'paymentMethod' => 1,
                     'expenseNote' => $formData['note'],
                     'userId' => $currentUserId
 
