@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="bilans-score <?php echo ($totalIncomesAmount - $totalExpensesAmount >= 0) ? 'bilans-plus' : 'bilans-minus' ?>">
-            <span>Your bilans score : </span>
+            <span>Your balance score : </span>
             <span class="bilans-score-value"><?php echo e($totalIncomesAmount - $totalExpensesAmount); ?></span>
             <span class="bilans-score-value">pln</span>
         </div>

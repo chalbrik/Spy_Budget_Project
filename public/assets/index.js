@@ -31,16 +31,14 @@
     cursor.style.top = e.pageY + 'px';
 });
 
-document.querySelectorAll('input').forEach((inputItem) => {
-    inputItem.addEventListener("mouseover", ()=>{
+document.querySelectorAll('input, a, textarea, label').forEach((inputItem) => {
+  inputItem.addEventListener("mouseover", () => {
       document.querySelector("#customCursor").classList.remove("custom-cursor");
   });
-});
 
-document.querySelectorAll('input').forEach((inputItem) => {
-  inputItem.addEventListener("mouseout", ()=>{
-    document.querySelector("#customCursor").classList.add("custom-cursor");
-});
+  inputItem.addEventListener("mouseout", () => {
+      document.querySelector("#customCursor").classList.add("custom-cursor");
+  });
 });
 
 document.querySelectorAll('button').forEach((inputItem) => {
