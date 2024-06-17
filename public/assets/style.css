@@ -1098,9 +1098,54 @@ fieldset.category-error legend {
 }
 
 
+/* settings - style */
+
+.settings-main-frame{
+    height: 95%;
+    width: 100%;
+
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
+
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.settings-fields{
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid black;
+
+    padding: 10px 10px 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+.settings-fields-name{
+    margin-bottom: 10px;
+}
+
+.settings-fields-name:hover{
+    margin-bottom: 10px;
+}
+
+.settings-options{
+    height: 100%;
+    width: 75%;
+
+    display: flex;
+    flex-direction: column;
+}
 
 
-
+/* media-queries */
 
 @media (max-height: 800px) {
 
