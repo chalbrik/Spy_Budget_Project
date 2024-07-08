@@ -52,11 +52,17 @@ class ValidatorService
         ]);
     }
 
-    public function validateUpdate(array $formData)
+    public function validateUpdateUsername(array $formData)
     {
         $this->validator->validate($formData, [
-            'new-username' => ['required'],
-            'old-passowrd' => ['required'],
+            'new-username' => ['required']
+        ]);
+    }
+
+    public function validateUpdatePassword(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'old-password' => ['required'],
             'new-password' => ['required'],
             'new-password-repeat' => ['required', 'match:new-password']
         ]);

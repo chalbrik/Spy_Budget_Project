@@ -1232,8 +1232,12 @@ h2.settings-data-title{
     padding: 2.5px 0 2.5px 0;
 }
 
-.change-password-input{
-    margin: 0 0 0 30px;
+.change-password-input-label{
+    margin: 0 30px 0 0;
+}
+
+.change-password-button{
+    margin-left: 0;
 }
 
 /* settings - style - end */

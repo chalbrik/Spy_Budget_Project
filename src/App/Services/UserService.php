@@ -110,4 +110,33 @@ class UserService
             'userId' => $userId
         ]);
     }
+
+    public function checkOldPassword(array $formData)
+    {
+        $userId = $_SESSION['user'];
+
+        $currentPassword = $this->db->query("SELECT password FROM user_data WHERE user_id = :userId", [
+            'userId' => $userId
+        ])->find();
+
+        $passwordMatch = password_verify($formData['old-password'], $currentPassword['password'] ?? '');
+
+        if (!$passwordMatch) {
+            throw new ValidationException(['old-password' => ['Invalid old password']]);
+        }
+    }
+
+    public function changePassword(array $formData)
+    {
+        //najpierw trzeba sprawdzić warunek czy stare hasło się zgadza - wydaje mi sie że to powinno być w validatorzr
+
+        $userId = $_SESSION['user'];
+
+        $newPassword = password_hash($formData['new-password'], PASSWORD_BCRYPT, ['cost' => 12]);
+
+        $this->db->query("UPDATE user_data SET password = :newPassword WHERE user_id = :userId", [
+            'newPassword' => $newPassword,
+            'userId' => $userId
+        ]);
+    }
 }

@@ -30,25 +30,44 @@
         <form action="/settings-change-password" method="POST">
             <?php include $this->resolve('partials/_csrf.php'); ?>
             <div class="change-password-line">
-                <label for="">Type old password:</label>
-                <input type="text" name="old-password" class="change-password-input settings-data-input">
-                <?php if (array_key_exists('old-password', $errors)) : ?>
-                    <span class="input-name validation-error-message">
-                        <?php echo e($errors['old-password'][0]); ?>
-                    </span>
-                    <div></div>
-                <?php endif; ?>
+                <label class="change-password-input-label" for="old-password">Type old password:</label>
+                <div style="display: flex; flex-direction:column;">
+                    <input id="old-password" type="text" name="old-password" class="change-password-input settings-data-input">
+                    <?php if (array_key_exists('old-password', $errors)) : ?>
+                        <span class="input-name validation-error-message">
+                            <?php echo e($errors['old-password'][0]); ?>
+                        </span>
+                        <div></div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <div class="change-password-line">
-                <label for="">Type new password: </label>
-                <input type="text" name="new-password" class="change-password-input settings-data-input">
+                <label class="change-password-input-label" for="new-password">Type new password: </label>
+                <div style="display: flex; flex-direction:column;">
+                    <input id="new-password" type="text" name="new-password" class="change-password-input settings-data-input">
+                    <?php if (array_key_exists('new-password', $errors)) : ?>
+                        <span class="input-name validation-error-message">
+                            <?php echo e($errors['new-password'][0]); ?>
+                        </span>
+                        <div></div>
+                    <?php endif; ?>
+                </div>
+
             </div>
             <div class="change-password-line">
-                <label for="">Type new password again: </label>
-                <input type="text" name="new-password-repeat" class="change-password-input settings-data-input">
+                <label class="change-password-input-label" for="new-password-repeat">Type new password again: </label>
+                <div style="display: flex; flex-direction:column;">
+                    <input id="new-password-repeat" type="text" name="new-password-repeat" class="change-password-input settings-data-input">
+                    <?php if (array_key_exists('new-password-repeat', $errors)) : ?>
+                        <span class="input-name validation-error-message">
+                            <?php echo e($errors['new-password-repeat'][0]); ?>
+                        </span>
+                        <div></div>
+                    <?php endif; ?>
+                </div>
             </div>
-            <input type="submit" value="Change password" class="settings-data-button">
+            <input type="submit" value="Change password" class="settings-data-button change-password-button">
 
         </form>
     </div>

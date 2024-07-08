@@ -37,7 +37,7 @@ class SettingsController
 
     public function changeUsername()
     {
-        $this->validatorService->validateUpdate($_POST);
+        $this->validatorService->validateUpdateUsername($_POST);
 
         $this->userService->changeUsername($_POST['new-username']);
 
@@ -46,8 +46,12 @@ class SettingsController
 
     public function changePassword()
     {
-        $this->validatorService->validateUpdate($_POST);
+        $this->validatorService->validateUpdatePassword($_POST);
+
+        $this->userService->checkOldPassword($_POST);
 
         $this->userService->changePassword($_POST);
+
+        redirectTo('/settings');
     }
 }
