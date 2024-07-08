@@ -99,4 +99,15 @@ class UserService
             'userId' => $userId
         ])->find();
     }
+
+    public function changeUsername(string $newUsername)
+    {
+
+        $userId = $_SESSION['user'];
+
+        $this->db->query("UPDATE user_data SET user_name = :newUsername WHERE user_id = :userId", [
+            'newUsername' => $newUsername,
+            'userId' => $userId
+        ]);
+    }
 }

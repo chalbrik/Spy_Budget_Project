@@ -131,6 +131,12 @@ if(document.querySelector(".amount-input")){
   
 }
 
+if(document.querySelector(".settings-data-input")){
+  document.querySelector(".settings-data-input").addEventListener("focus", ()=>{
+    document.querySelector(".settings-data-input").classList.remove("settings-data-input-error");
+  });
+}
+
 //koniec usuwania czerwonego styli po kliknięciu na input
 
 

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Framework\TemplateEngine;
-use App\Services\UserService;
+use App\Services\{UserService, ValidatorService};
 
 class SettingsController
 {
-    public function __construct(private TemplateEngine $view, private UserService $userService)
+    public function __construct(private TemplateEngine $view, private UserService $userService, private ValidatorService $validatorService)
     {
     }
 
@@ -28,10 +28,26 @@ class SettingsController
 
     public function getSettingsFieldTab()
     {
-        if (!empty($_POST)) {
+        if (isset($_POST['settings-field-name'])) {
             return $_POST['settings-field-name'];
         } else {
             return 'Profile information';
         }
+    }
+
+    public function changeUsername()
+    {
+        $this->validatorService->validateUpdate($_POST);
+
+        $this->userService->changeUsername($_POST['new-username']);
+
+        redirectTo('/settings');
+    }
+
+    public function changePassword()
+    {
+        $this->validatorService->validateUpdate($_POST);
+
+        $this->userService->changePassword($_POST);
     }
 }

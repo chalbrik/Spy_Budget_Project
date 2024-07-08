@@ -51,4 +51,14 @@ class ValidatorService
             'note' => ['lengthMax:255']
         ]);
     }
+
+    public function validateUpdate(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'new-username' => ['required'],
+            'old-passowrd' => ['required'],
+            'new-password' => ['required'],
+            'new-password-repeat' => ['required', 'match:new-password']
+        ]);
+    }
 }

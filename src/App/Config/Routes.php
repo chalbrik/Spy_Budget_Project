@@ -40,7 +40,10 @@ function registerRoutes(App $app)
     $app->get('/track-expenses', [TrackExpensesController::class, 'trackExpenses'])->add(AuthRequiredMiddleware::class);
 
     $app->get('/settings', [SettingsController::class, 'settings'])->add(AuthRequiredMiddleware::class);
-    $app->post('/settings', [SettingsController::class, 'settings'])->add(AuthRequiredMiddleware::class);;
+    $app->post('/settings', [SettingsController::class, 'settings'])->add(AuthRequiredMiddleware::class);
+    $app->post('/settings-change-username', [SettingsController::class, 'changeUsername'])->add(AuthRequiredMiddleware::class);
+    $app->post('/settings-change-password', [SettingsController::class, 'changePassword'])->add(AuthRequiredMiddleware::class);
+
 
     $app->get('/logout', [HomeController::class, 'logoutUser'])->add(AuthRequiredMiddleware::class);
 }
