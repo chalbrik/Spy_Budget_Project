@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Framework\TemplateEngine;
-use App\Services\{UserService, ValidatorService};
+use App\Services\{UserService, ValidatorService, TransactionService};
 
 class SettingsController
 {
-    public function __construct(private TemplateEngine $view, private UserService $userService, private ValidatorService $validatorService)
-    {
+    public function __construct(
+        private TemplateEngine $view,
+        private UserService $userService,
+        private ValidatorService $validatorService,
+        private TransactionService $transactionService
+    ) {
     }
 
     public function settings()
@@ -20,9 +24,14 @@ class SettingsController
         $usernameData = $this->userService->getUsername();
         $username = $usernameData["user_name"];
 
+        $incomesCategories = $this->transactionService->applyCategoriesToForm("incomes");
+        $expensesCategories = $this->transactionService->applyCategoriesToForm("expenses");
+
         echo $this->view->render("/settings.php", [
             'selectedSettingsFieldTab' => $selectedSettingsFieldTab,
-            'username' => $username
+            'username' => $username,
+            'incomeCategories' => $incomesCategories,
+            'expensesCategories' => $expensesCategories
         ]);
     }
 
