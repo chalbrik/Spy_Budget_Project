@@ -37,11 +37,15 @@ class SettingsController
 
     public function getSettingsFieldTab()
     {
+
         if (isset($_POST['settings-field-name'])) {
-            return $_POST['settings-field-name'];
-        } else {
-            return 'Profile information';
+            $settingsFieldName = htmlspecialchars($_POST['settings-field-name']);
+            $_SESSION['settings-field-name'] = $settingsFieldName;
+        } elseif (empty($_POST['settings-field-name']) && empty($_SESSION['settings-field-name'])) {
+            $_SESSION['settings-field-name'] = 'Profile information';
         }
+
+        return $_SESSION['settings-field-name'];
     }
 
     public function changeUsername()
@@ -62,5 +66,29 @@ class SettingsController
         $this->userService->changePassword($_POST);
 
         redirectTo('/settings');
+    }
+
+    public function addNewIncomeCategory()
+    {
+        $this->validatorService->validateNewIncomeCategory($_POST);
+
+        $this->transactionService->addNewIncomeCategory($_POST);
+
+        redirectTo('/settings');
+    }
+
+    public function addNewExpenseCategory()
+    {
+
+        $this->validatorService->validateNewExpenseCategory($_POST);
+
+        $this->transactionService->addNewExpenseCategory($_POST);
+
+        redirectTo('/settings');
+    }
+
+    public function deleteCategory(array $params)
+    {
+        dd($params);
     }
 }

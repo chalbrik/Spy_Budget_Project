@@ -15,6 +15,7 @@ class AddIncomeController
 
     public function addIncomePage()
     {
+        unset($_SESSION['settings-field-name']);
 
         //myślę że tutaj trzebabyło dodać funkcję pobierania danych z bazy danych dotyczących domyślnych kategorii dla uzytkownika
         //może jest lepsze miejsce żeby to zrobic ale niech na razie to będzie tutuaj

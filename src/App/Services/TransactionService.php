@@ -208,4 +208,34 @@ class TransactionService
 
         return  $transactionsdata;
     }
+
+    public function addNewIncomeCategory(array $formData)
+    {
+
+        $userId = $_SESSION['user'];
+
+        $this->db->query(
+            "INSERT INTO incomes_category_assigned_to_users(user_id, income_category_name) 
+            VALUES(:userId, :incomeCategoryName)",
+            [
+                'userId' => $userId,
+                'incomeCategoryName' =>  $formData['new-income-category'],
+            ]
+        );
+    }
+
+    public function addNewExpenseCategory(array $formData)
+    {
+
+        $userId = $_SESSION['user'];
+
+        $this->db->query(
+            "INSERT INTO expenses_category_assigned_to_users(user_id, expense_category_name) 
+            VALUES(:userId, :expenseCategoryName)",
+            [
+                'userId' => $userId,
+                'expenseCategoryName' =>  $formData['new-expense-category'],
+            ]
+        );
+    }
 }

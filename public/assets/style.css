@@ -1266,6 +1266,24 @@ h2.settings-data-title{
     margin-bottom: 5px;
 }
 
+.settings-category-delete-button{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+}
+
+.settings-category-delete-button svg{
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    fill: #FF5E00;
+
+
+}
+
 /* settings - style - end */
 
 

@@ -16,6 +16,8 @@ class CheckBalanceController
     public function checkBalance()
     {
 
+        unset($_SESSION['settings-field-name']);
+
         //tutaj trzeba wcześniej zastosowac metody, które wysyłają zapytania do bazy danych o dane dotyczące przychodów i wydatków aby móc je wyświeltlać na stronie
 
         $transactionsData = $this->transactionService->getTransactionsData();

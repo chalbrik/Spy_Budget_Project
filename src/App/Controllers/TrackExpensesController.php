@@ -14,6 +14,10 @@ class TrackExpensesController
 
     public function trackExpenses()
     {
+        unset($_SESSION['settings-field-name']);
+
+
+
         echo $this->view->render("/track-expenses.php");
     }
 }

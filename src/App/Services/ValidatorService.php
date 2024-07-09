@@ -67,4 +67,18 @@ class ValidatorService
             'new-password-repeat' => ['required', 'match:new-password']
         ]);
     }
+
+    public function validateNewIncomeCategory(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'new-income-category' => ['required']
+        ]);
+    }
+
+    public function validateNewExpenseCategory(array $formData)
+    {
+        $this->validator->validate($formData, [
+            'new-expense-category' => ['required']
+        ]);
+    }
 }

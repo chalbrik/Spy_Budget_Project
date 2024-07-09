@@ -15,6 +15,7 @@ class AddExpenseController
 
     public function addExpensePage()
     {
+        unset($_SESSION['settings-field-name']);
 
         $expensesCategories = $this->transactionService->applyCategoriesToForm("expenses");
 
