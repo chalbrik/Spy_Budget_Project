@@ -1244,6 +1244,13 @@ h2.settings-data-title{
     margin-left: 0;
 }
 
+.delete-button{
+    background-color: rgb(255, 94, 0, 0.8);
+    border: 1px solid rgb(255, 94, 0, 0.2);
+    margin: 5px 0 5px 10px;
+    width: 130px;
+}
+
 .settings-category-list{
     height: 300px;
     width: 100%;

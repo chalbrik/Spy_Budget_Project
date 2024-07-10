@@ -160,6 +160,16 @@ if(document.querySelector(".settings-single-category-catch-mouse")){
   }
 //koniec - kod, który odpowiada za wyświetlanie przycisków do usunięcia jeżeli najedzie się na kategorię w ustawieniach
 
+// poniżej kod - potwierdzenie usunięcia użytkownika
+
+  function confirmDelete(){
+    if(confirm("Do you want to delete your account?")){
+      document.getElementById('delete-user-form').submit();
+    }
+  }
+
+// koniec - potwierdzenie usunięcia użytkownika
+
 
 //rozwijanie bloku tekstu z informacjami o stronie dla użytkownika
 

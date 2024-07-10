@@ -76,8 +76,16 @@
 </div>
 <div class="settings-data">
     <h2 class="settings-data-title">Delete account</h2>
-    <form action="">
-        <input type="submit" value="Delete account">
+    <div style=" width: 100%; display: flex; flex-direction:row; justify-content:left; align-items:center;">
+        <p>If you want to permanently delete your account, you can do so by clicking this button.</p>
+        <input onclick="confirmDelete()" type="submit" value="Delete account" class="settings-data-button delete-button">
+    </div>
+
+    </form>
+    <form id="delete-user-form" action="/settings/delete-account/" method="POST">
+        <input type="hidden" name="_METHOD" value="DELETE" />
+        <?php include $this->resolve('partials/_csrf.php'); ?>
+        <input type="hidden">
     </form>
 
 </div>
