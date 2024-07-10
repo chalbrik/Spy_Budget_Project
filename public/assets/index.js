@@ -131,13 +131,34 @@ if(document.querySelector(".amount-input")){
   
 }
 
+// ten kod tutaj znajduje wszystkie inputy tekstowe, które zaświecą sie na czerwono i je usunie po kliknięciu na niego
 if(document.querySelector(".settings-data-input")){
-  document.querySelector(".settings-data-input").addEventListener("focus", ()=>{
-    document.querySelector(".settings-data-input").classList.remove("settings-data-input-error");
+  document.querySelectorAll(".settings-data-input").forEach((element) => {
+    element.addEventListener("focus", ()=>{
+      if(element.classList.contains("settings-data-input-error")){
+        element.classList.remove("settings-data-input-error");
+      }
+      
+    });
   });
+  
 }
 
 //koniec usuwania czerwonego styli po kliknięciu na input
+
+//poniżej kod, który odpowiada za wyświetlanie przycisków do usunięcia jeżeli najedzie się na kategorię w ustawieniach
+if(document.querySelector(".settings-single-category-catch-mouse")){
+  document.querySelectorAll(".settings-single-category-catch-mouse").forEach((element) => {
+      element.addEventListener("mouseover", ()=>{
+        element.firstElementChild.nextElementSibling.hidden = false;
+      });
+
+      element.addEventListener("mouseout", ()=>{
+        element.firstElementChild.nextElementSibling.hidden = true;
+      });
+    });
+  }
+//koniec - kod, który odpowiada za wyświetlanie przycisków do usunięcia jeżeli najedzie się na kategorię w ustawieniach
 
 
 //rozwijanie bloku tekstu z informacjami o stronie dla użytkownika

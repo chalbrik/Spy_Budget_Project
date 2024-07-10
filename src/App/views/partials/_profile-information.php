@@ -32,7 +32,7 @@
             <div class="change-password-line">
                 <label class="change-password-input-label" for="old-password">Type old password:</label>
                 <div style="display: flex; flex-direction:column;">
-                    <input id="old-password" type="text" name="old-password" class="change-password-input settings-data-input">
+                    <input id="old-password" type="text" name="old-password" class="change-password-input settings-data-input <?php echo array_key_exists('old-password', $errors) ? 'settings-data-input-error' : ''; ?>">
                     <?php if (array_key_exists('old-password', $errors)) : ?>
                         <span class="input-name validation-error-message">
                             <?php echo e($errors['old-password'][0]); ?>
@@ -45,7 +45,7 @@
             <div class="change-password-line">
                 <label class="change-password-input-label" for="new-password">Type new password: </label>
                 <div style="display: flex; flex-direction:column;">
-                    <input id="new-password" type="text" name="new-password" class="change-password-input settings-data-input">
+                    <input id="new-password" type="text" name="new-password" class="change-password-input settings-data-input <?php echo array_key_exists('new-password', $errors) ? 'settings-data-input-error' : ''; ?>">
                     <?php if (array_key_exists('new-password', $errors)) : ?>
                         <span class="input-name validation-error-message">
                             <?php echo e($errors['new-password'][0]); ?>
@@ -58,7 +58,7 @@
             <div class="change-password-line">
                 <label class="change-password-input-label" for="new-password-repeat">Type new password again: </label>
                 <div style="display: flex; flex-direction:column;">
-                    <input id="new-password-repeat" type="text" name="new-password-repeat" class="change-password-input settings-data-input">
+                    <input id="new-password-repeat" type="text" name="new-password-repeat" class="change-password-input settings-data-input <?php echo array_key_exists('new-password-repeat', $errors) ? 'settings-data-input-error' : ''; ?>">
                     <?php if (array_key_exists('new-password-repeat', $errors)) : ?>
                         <span class="input-name validation-error-message">
                             <?php echo e($errors['new-password-repeat'][0]); ?>

@@ -1138,6 +1138,7 @@ fieldset.category-error legend {
 
 .settings-fields-name:hover{
     text-decoration: underline;
+    cursor: pointer;
 
 }
 
@@ -1207,9 +1208,12 @@ h2.settings-data-title{
 
 .settings-data-button{
     height: 30px;
-    border: 1px solid rgb(0, 0, 0, 0.2);
+    background-color: rgb(22, 117, 242, 0.8);
+    color: white;
+    border: 1px solid rgb(22, 117, 242, 0.2);
     border-radius: 10px;
     margin: 5px 0 5px 10px;
+    font-weight: 600;
 }
 
 .settings-data-button:hover{
@@ -1241,8 +1245,7 @@ h2.settings-data-title{
 }
 
 .settings-category-list{
-    height: 100%;
-    max-height: 300px;
+    height: 300px;
     width: 100%;
     background-color: rgb(255, 255, 255, 0.95);
     border-radius: 10px;
@@ -1257,7 +1260,7 @@ h2.settings-data-title{
 }
 
 .settings-single-category{
-    margin: 5px 5px 5px 5px;
+    margin: 10px 5px 10px 5px;
 }
 
 .settings-add-new-category{
@@ -1276,12 +1279,10 @@ h2.settings-data-title{
 
 .settings-category-delete-button svg{
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
 
     fill: #FF5E00;
-
-
 }
 
 /* settings - style - end */

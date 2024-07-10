@@ -24,3 +24,18 @@ function redirectTo(string $path)
     http_response_code(302);
     exit();
 }
+
+function formatString(string $str): string
+{
+
+    if (empty($str)) {
+        return $str;
+    }
+
+    $firstChar = mb_substr($str, 0, 1);
+    $remainingChars = mb_substr($str, 1);
+
+    $formattedString = mb_strtoupper($firstChar) . mb_strtolower($remainingChars);
+
+    return $formattedString;
+}

@@ -87,8 +87,17 @@ class SettingsController
         redirectTo('/settings');
     }
 
-    public function deleteCategory(array $params)
+    public function deleteExpenseCategory(array $params)
     {
-        dd($params);
+        $this->transactionService->deleteExpenseCategory((int) $params['category']); //tutaj wpsiujemy jako klucz tą nazwę, która jest zapisana w trasie settings/category/{category}, bo tak zostało to zaprogramowane w routerze
+
+        redirectTo('/settings');
+    }
+
+    public function deleteIncomeCategory(array $params)
+    {
+        $this->transactionService->deleteIncomeCategory((int) $params['category']); //tutaj wpsiujemy jako klucz tą nazwę, która jest zapisana w trasie settings/category/{category}, bo tak zostało to zaprogramowane w routerze
+
+        redirectTo('/settings');
     }
 }

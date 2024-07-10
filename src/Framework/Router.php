@@ -18,11 +18,16 @@ class Router
 
         $path = $this->normalizePath($path);
 
+        // do przechwytywania tras z parametrami (jak na przykład usuwanie kateogorii z listy muszę zaimplementować poniższy kod)
+
+        $regexPath = preg_replace('#{[^/]+}#', '([^/]+)', $path);
+
         $this->routes[] = [
             'path' => $path,
             'method' => strtoupper($method),
             'controller' => $controller,
-            'middlewares' => []
+            'middlewares' => [],
+            'regexPath' => $regexPath
         ];
         //to jest dodawanie wartości do tablicy routes, wartością tą tez jest tablica, w tablicy 
         //routes znajdują się trasy z konfiguracjami oraz danymi co z nimi robić
@@ -45,7 +50,7 @@ class Router
     public function dispatch(string $path, string $method, Container $container = null)
     {
         $path = $this->normalizePath($path);
-        $method = strtoupper($method);
+        $method = strtoupper($_POST['_METHOD'] ?? $method);
         // tutaj formatuję path oraz metodę aby mieć pewność że są prawidłowo przekazywane dalej w metodzie
 
         //w tej pętli foereach następuje przekazani argumentów funkcji dispatch i porównywwanie ją z wszystkimi routes które są tablicą
@@ -54,9 +59,21 @@ class Router
 
         foreach ($this->routes as $route) {
 
-            if (!preg_match("#^{$route['path']}$#", $path) || $route['method'] !== $method) {
+            if (!preg_match("#^{$route['regexPath']}$#", $path, $paramValues) || $route['method'] !== $method) {
                 continue;
             }
+
+
+            //w tym miejscu zrobiliśmy coś takiego, że wyciągamy parametr, który jest id elementu, który chcemy edytować oraz wyciągamy klucz z route settings/category/{category}
+            // a następnie za pomocą array_combine robimy tablicę asocjacyjną gdzie kluczem jest category => np.102 , a wartością id elementu, który chcemy edytować
+
+            array_shift($paramValues);
+
+            preg_match_all('#{([^/]+)}#', $route['path'], $paramKeys);
+
+            $paramKeys = $paramKeys[1];
+
+            $params = array_combine($paramKeys, $paramValues);
 
             //tutaj przypisujemy zmiennym class oraz function wartości kontrolera, który został znaleziony w powyżrzej pętli
             //controller to tablica, którego wartości można przypisać do zmiennych w taki sposób
@@ -67,7 +84,7 @@ class Router
             //tutaj też zrobiliśmy coś takiego że w zależnosci od tego jeżeli mamy jakiś kontroler, który wamaga przy instancji swojego obiektu jakiej parmetry to wstrzykniemy
             //je za pomocą kontenera. Jeżeli nie to po prostu klasa kontrolera zostanie utworzona i tyle
 
-            $action = fn () => $controllerInstance->{$function}(); // a tutaj wywoływana jest funkcja tego controlera
+            $action = fn () => $controllerInstance->{$function}($params); // a tutaj wywoływana jest funkcja tego controlera
 
             //powyższy zabieg nazywa sie dynamicznym tworzeniem instancji klasy
 

@@ -211,6 +211,9 @@ class TransactionService
 
     public function addNewIncomeCategory(array $formData)
     {
+        $incomeCategoryName = $formData['new-income-category'];
+
+        $incomeCategoryName = formatString($incomeCategoryName);
 
         $userId = $_SESSION['user'];
 
@@ -219,7 +222,7 @@ class TransactionService
             VALUES(:userId, :incomeCategoryName)",
             [
                 'userId' => $userId,
-                'incomeCategoryName' =>  $formData['new-income-category'],
+                'incomeCategoryName' =>  $incomeCategoryName
             ]
         );
     }
@@ -228,13 +231,43 @@ class TransactionService
     {
 
         $userId = $_SESSION['user'];
+        $expenseCategoryName = $formData['new-expense-category'];
+
+        $expenseCategoryName = formatString($expenseCategoryName);
 
         $this->db->query(
             "INSERT INTO expenses_category_assigned_to_users(user_id, expense_category_name) 
             VALUES(:userId, :expenseCategoryName)",
             [
                 'userId' => $userId,
-                'expenseCategoryName' =>  $formData['new-expense-category'],
+                'expenseCategoryName' =>  $expenseCategoryName
+            ]
+        );
+    }
+
+    public function deleteExpenseCategory(int $id)
+    {
+
+        $userId = $_SESSION['user'];
+
+        $this->db->query(
+            "DELETE FROM expenses_category_assigned_to_users WHERE expense_category_assigned_to_user_id = :categoryId AND user_id = :userId",
+            [
+                'categoryId' => $id,
+                'userId' => $userId
+            ]
+        );
+    }
+
+    public function deleteIncomeCategory(int $id)
+    {
+        $userId = $_SESSION['user'];
+
+        $this->db->query(
+            "DELETE FROM incomes_category_assigned_to_users WHERE income_category_assigned_to_user_id = :categoryId AND user_id = :userId",
+            [
+                'categoryId' => $id,
+                'userId' => $userId
             ]
         );
     }
