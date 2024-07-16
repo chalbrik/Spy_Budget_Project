@@ -6,12 +6,12 @@
             <div class="check-balance-description-button">
                 <span class="user-greeting">Hello </span>
                 <span class="user-greeting user-name"><?php echo e($username) ?></span>
-                <span class="user-greeting">, click here and see what you can do over here! </span>
+                <span class="user-greeting user-greeting-click-here">, click here and see what you can do over here! </span>
 
             </div>
             <form id="time-frame-form" action="/check-balance" method="POST">
                 <?php include $this->resolve('partials/_csrf.php'); ?>
-                <label for="time-period">Select desired period for data</label>
+                <label class="time-period-label" for="time-period">Select desired period for data</label>
                 <select id="time-period" name="date" onchange="submitForm()">
                     <option value="all-history" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'all-history') ? 'selected' : ''; ?>>All history</option>
                     <option value="current-month" <?php echo (isset($_SESSION['selectedTimePeriod']) && $_SESSION['selectedTimePeriod'] == 'current-month') ? 'selected' : ''; ?>>Current month</option>

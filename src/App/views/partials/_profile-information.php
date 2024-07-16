@@ -77,7 +77,7 @@
 <div class="settings-data">
     <h2 class="settings-data-title">Delete account</h2>
     <div style=" width: 100%; display: flex; flex-direction:row; justify-content:left; align-items:center;">
-        <p>If you want to permanently delete your account, you can do so by clicking this button.</p>
+        <p>If you want to permanently delete your account, you can do so by clicking thisgit button.</p>
         <input onclick="confirmDelete()" type="submit" value="Delete account" class="settings-data-button delete-button">
     </div>
 

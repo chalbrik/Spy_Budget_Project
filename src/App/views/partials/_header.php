@@ -16,13 +16,12 @@
 <body>
     <div class="custom-cursor" id="customCursor"></div>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-bg-color custom-position">
-            <!-- <button class="navbar-toggler navbar-toggler-custom" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <div class="collapse navbar-collapse justify-content-md-center custom-position" id="navbarsExample08">
+
+        <nav>
+            <button class="navbar-button"></button>
+            <div class="navbar">
                 <?php if (isset($_SESSION['user'])) : ?>
-                    <ul class="navbar-nav custom-width">
+                    <ul class="navbar-nav">
                         <li class="nav-item active custom-layout-logo">
                             <img class="logo" src="/assets/icons/pie-chart-logo.svg" alt="Logo" />
                             <a class="nav-link custom-font-logo" href="/check-balance">spy <br />budget</span> </a>
@@ -37,10 +36,10 @@
                             <p class="custom-font"> / </p>
                             <a class="nav-link custom-font nav-name-add" href="/add-expense">Expense</a>
                         </li>
-                        <li class="nav-item nav-item-custom-postion">
+                        <!-- <li class="nav-item nav-item-custom-postion">
                             <img id="track-expenses" class="nav-icon" src="/assets/icons/calculator.svg" alt="Track expenses" />
                             <a class="nav-link custom-font nav-link-check-balance nav-name-check-balance" href="/track-expenses">Track expenses</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item nav-item-custom-postion">
                             <img id="settings" class="nav-icon" src="/assets/icons/gear.svg" alt="Settings" />
                             <a class="nav-link custom-font nav-name-settings" href="/settings">Settings</a>
@@ -53,4 +52,6 @@
                 <?php endif; ?>
             </div>
         </nav>
+
+
     </header>
