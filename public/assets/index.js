@@ -237,22 +237,23 @@ function confirmDelete() {
 // koniec - potwierdzenie usunięcia użytkownika
 
 //rozwijanie bloku tekstu z informacjami o stronie dla użytkownika
+if (document.querySelector(".check-balance-description-button")) {
+  document
+    .querySelector(".check-balance-description-button")
+    .addEventListener("click", () => {
+      document
+        .querySelector(".check-balance-description")
+        .classList.toggle("enable");
+    });
 
-document
-  .querySelector(".check-balance-description-button")
-  .addEventListener("click", () => {
-    document
-      .querySelector(".check-balance-description")
-      .classList.toggle("enable");
-  });
-
-document
-  .querySelector(".check-balance-description-button")
-  .addEventListener("click", () => {
-    document
-      .querySelector(".check-balance-description-button")
-      .classList.toggle("clicked");
-  });
+  document
+    .querySelector(".check-balance-description-button")
+    .addEventListener("click", () => {
+      document
+        .querySelector(".check-balance-description-button")
+        .classList.toggle("clicked");
+    });
+}
 
 //koniec kodu z blokiem tekstu z informajami o stronie dla użytkownika
 
