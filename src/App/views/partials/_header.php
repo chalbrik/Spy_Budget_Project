@@ -18,9 +18,20 @@
     <header>
 
         <nav>
-            <button class="navbar-button"></button>
+            <button class="navbar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+            </button>
+            <div class="mobile-navbar-panel mobile-navbar-panel-hidden"></div>
             <div class="navbar">
                 <?php if (isset($_SESSION['user'])) : ?>
+                    <button class="close-mobile-navbar-panel close-mobile-navbar-panel-hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </button>
                     <ul class="navbar-nav">
                         <li class="nav-item active custom-layout-logo">
                             <img class="logo" src="/assets/icons/pie-chart-logo.svg" alt="Logo" />
@@ -33,13 +44,11 @@
                         <li class="nav-item-add nav-item dropdown nav-item-custom-postion">
                             <img id="add" class="nav-icon" src="/assets/icons/plus-lg.svg" alt="Add" />
                             <a class="nav-link custom-font nav-name-add" href="/add-income">Income</a>
-                            <p class="custom-font"> / </p>
+                        </li>
+                        <li class="nav-item nav-item-custom-postion">
+                            <img id="add" class="nav-icon" src="/assets/icons/plus-lg.svg" alt="Add" />
                             <a class="nav-link custom-font nav-name-add" href="/add-expense">Expense</a>
                         </li>
-                        <!-- <li class="nav-item nav-item-custom-postion">
-                            <img id="track-expenses" class="nav-icon" src="/assets/icons/calculator.svg" alt="Track expenses" />
-                            <a class="nav-link custom-font nav-link-check-balance nav-name-check-balance" href="/track-expenses">Track expenses</a>
-                        </li> -->
                         <li class="nav-item nav-item-custom-postion">
                             <img id="settings" class="nav-icon" src="/assets/icons/gear.svg" alt="Settings" />
                             <a class="nav-link custom-font nav-name-settings" href="/settings">Settings</a>

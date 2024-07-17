@@ -32,16 +32,16 @@
                     <legend>Pick category:</legend>
 
                     <div class="radio-row">
-                        <?php if (!empty($categories)) : ?>
-                            <?php foreach ($categories as $expenseCategory) : ?>
-                                <div class="form-check">
-                                    <input type="radio" id="<?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?>" name="transaction-category" value="<?php echo htmlspecialchars($expenseCategory['expense_category_assigned_to_user_id']); ?>" class="form-check-input">
-                                    <label for="<?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?>" class="form-check-label"><?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?></label>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            <p>No categories available.</p>
-                        <?php endif; ?>
+                        <select>
+                            <?php if (!empty($categories)) : ?>
+                                <?php foreach ($categories as $expenseCategory) : ?>
+
+                                    <option value="<?php echo htmlspecialchars($expenseCategory['expense_category_assigned_to_user_id']); ?>"><?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?></option>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <p>No categories available.</p>
+                            <?php endif; ?>
+                        </select>
                     </div>
                 </fieldset>
                 <?php if (array_key_exists('transaction-category', $errors)) : ?>

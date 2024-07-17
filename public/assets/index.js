@@ -31,7 +31,7 @@ function checkViewportWidth() {
 
   console.log(document.documentElement.clientWidth);
 
-  if (document.documentElement.clientWidth < 380) {
+  if (document.documentElement.clientWidth <= 1280) {
     // Pokaż button, ukryj navbar
     navbarButton.classList.remove("navbar-hidden");
     navbar.classList.add("navbar-hidden");
@@ -46,6 +46,34 @@ function checkViewportWidth() {
 window.addEventListener("load", checkViewportWidth);
 // Sprawdź przy zmianie rozmiaru okna
 window.addEventListener("resize", checkViewportWidth);
+
+//Wyśietlanie menu mobilnego po kliknięciu w przycisk
+
+var navbarButton = document.querySelector(".navbar-button");
+var closeNavbarButton = document.querySelector(".close-mobile-navbar-panel");
+var navbar = document.querySelector(".navbar");
+
+if (navbarButton) {
+  navbarButton.addEventListener("click", () => {
+    navbarButton.nextElementSibling.classList.remove(
+      "mobile-navbar-panel-hidden"
+    );
+    navbar.classList.remove("navbar-hidden");
+    navbar.firstElementChild.classList.remove(
+      "close-mobile-navbar-panel-hidden"
+    );
+  });
+}
+
+//Zamykanie menu mobilnego po kliknięciu w przycisk
+
+if (closeNavbarButton) {
+  closeNavbarButton.addEventListener("click", () => {
+    navbarButton.nextElementSibling.classList.add("mobile-navbar-panel-hidden");
+    navbar.classList.add("navbar-hidden");
+    navbar.firstElementChild.classList.add("close-mobile-navbar-panel-hidden");
+  });
+}
 
 //skrypt kursora
 document.addEventListener("mousemove", function (e) {
