@@ -60,7 +60,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">Password</span>
-                            <input type="text" name="password-login" class="single-form-input <?php echo array_key_exists('password-login', $errors) ? 'application-form-value-empty' : ''; ?>" />
+                            <input type="password" name="password-login" class="single-form-input <?php echo array_key_exists('password-login', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('password-login', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['password-login'][0]); ?>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">Password</span>
-                            <input type="text" name="password-register" class="single-form-input <?php echo array_key_exists('password-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
+                            <input type="password" name="password-register" class="single-form-input <?php echo array_key_exists('password-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('password-register', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['password-register'][0]); ?>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="input-field">
                             <span class="input-name">Repeat password</span>
-                            <input type="text" name="password-repeat-register" class="single-form-input <?php echo array_key_exists('password-repeat-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
+                            <input type="password" name="password-repeat-register" class="single-form-input <?php echo array_key_exists('password-repeat-register', $errors) ? 'application-form-value-empty' : ''; ?>" />
                             <?php if (array_key_exists('password-repeat-register', $errors)) : ?>
                                 <span class="input-name validation-error-message">
                                     <?php echo e($errors['password-repeat-register'][0]); ?>
