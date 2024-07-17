@@ -32,22 +32,6 @@ body {
     opacity: 0;
 }
 
-/* input[type="text"]:hover,
-textarea:hover,
-input[type="date"]:hover{
-    cursor: url(icons/custom-cursor-input.svg) 32 32, auto !important;
-
-} */
-
-
-/* input[type="submit"]:hover,
-input[type="radio"]:hover,
-button[type="submit"]:hover,
-a:hover,
-label:hover{
-    cursor: url(icons/hand-index-thumb.svg) 8 8, auto !important;
-} */
-
 * {
     box-sizing: border-box;
 }
@@ -735,7 +719,10 @@ fieldset.category {
     font-style: normal;
     font-size: 1.3rem;
 
+    border: none;
+
     margin: 10px 0 0 0;
+    padding: 0 0 0 0;
 }
 
 fieldset.category-error {
@@ -1157,7 +1144,6 @@ fieldset.category-error legend {
 }
 
 .settings-fields {
-    height: 100%;
     width: 25%;
     border-right: 1px solid black;
 
@@ -1235,6 +1221,20 @@ h2.settings-data-title {
 .settings-data-input {
     width: 270px;
     height: 30px;
+    margin: 5px 0 5px 0;
+    padding: 0 15px 0 15px;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.category-data-input {
+
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+
+    width: 270px;
+    height: 35px;
     margin: 5px 0 5px 0;
     padding: 0 15px 0 15px;
     border: 1px solid rgb(0, 0, 0, 0.2);
@@ -1334,6 +1334,14 @@ h2.settings-data-title {
     height: 12px;
 
     fill: #FF5E00;
+}
+
+.settings-delete-account {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
 }
 
 /* settings - style - end */
@@ -1473,7 +1481,7 @@ h2.settings-data-title {
         color: rgb(255, 255, 255);
         text-shadow: 2px 4px 0px #FF5E00;
         -webkit-text-stroke: 2px #FF5E00;
-        margin: 3rem 2rem 3rem 2rem;
+        margin: 30px 0 0 0;
     }
 
     .logo-and-header>img {
@@ -1497,19 +1505,10 @@ h2.settings-data-title {
         height: inherit;
         width: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: flex-start;
-    }
-
-    /* .box {
-        display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
-        width: 100%;
-        height: 100%;
-    } */
+    }
 
     .log-in {
         height: 100%;
@@ -1681,8 +1680,100 @@ h2.settings-data-title {
         font-size: 20px;
     }
 
+    .settings-main-frame {
+        flex-direction: column;
+    }
+
+    .settings-fields {
+        width: 100%;
+        border-bottom: 1px solid black;
+        flex-direction: column;
+    }
+
+    .settings-fields form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .settings-options {
+        width: 100%;
+    }
+
+    .home-page-description {
+        display: none;
+    }
 
 
+}
+
+@media (max-width: 800px) {
+
+
+    .box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .input-field>input {
+        max-width: none;
+    }
+
+    span.input-name {
+        max-width: none;
+
+    }
+
+    .input-table {
+        align-items: flex-start;
+    }
+
+    .right-side {
+        height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .settings-options {
+        width: 100%;
+        flex-direction: column !important;
+    }
+
+    .change-username {
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .change-username>span {
+        margin: 0 0 10px 0;
+    }
+
+    .settings-data-input {
+        width: 240px;
+    }
+
+    .settings-data-button {
+        margin: 5px 0 5px 10px;
+    }
+
+    .change-password-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .settings-delete-account {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 /* Laptops and desktops (small screens) */

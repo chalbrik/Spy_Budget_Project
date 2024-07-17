@@ -32,10 +32,9 @@
                     <legend>Pick category:</legend>
 
                     <div class="radio-row">
-                        <select>
+                        <select class="category-data-input" name="transaction-category" id="<?php echo htmlspecialchars($incomeCategory['expense_category_name']); ?>">
                             <?php if (!empty($categories)) : ?>
                                 <?php foreach ($categories as $expenseCategory) : ?>
-
                                     <option value="<?php echo htmlspecialchars($expenseCategory['expense_category_assigned_to_user_id']); ?>"><?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?></option>
                                 <?php endforeach; ?>
                             <?php else : ?>

@@ -24,6 +24,17 @@
 //   document.querySelector(".nav-name-add").nextElementSibling.hidden = true;
 // });
 
+//Uzupełnianie automatycznie daty w formularzu income / expense
+document.addEventListener("DOMContentLoaded", function () {
+  var dateInput = document.getElementById("start");
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = (today.getMonth() + 1).toString().padStart(2, "0"); // Miesiące w JS są 0-indexowane
+  var day = today.getDate().toString().padStart(2, "0");
+  var todayString = year + "-" + month + "-" + day;
+  dateInput.value = todayString;
+});
+
 //skrypt wyświeltania menu w zależności od szerokości vieportu
 function checkViewportWidth() {
   const navbarButton = document.querySelector(".navbar-button");
