@@ -10,16 +10,19 @@
                 <?php include $this->resolve('partials/_csrf.php'); ?>
                 <input class="settings-fields-name" type="submit" id="profile-information" name="settings-field-name" value="Profile information">
                 <input class="settings-fields-name" type="submit" id="transaction-categories" name="settings-field-name" value="Transaction Categories">
+                <input class="settings-fields-name" type="submit" id="set-category-limit" name="settings-field-name" value="Set category limit">
 
             </form>
         </div>
-        <div class="settings-options" style="<?php echo ($selectedSettingsFieldTab == 'Transaction Categories') ? 'flex-direction: row;' : ''; ?>">
+        <div class="settings-options" style="<?php echo ($selectedSettingsFieldTab == 'Transaction Categories' || $selectedSettingsFieldTab == 'Set category limit') ? 'flex-direction: row;' : ''; ?>">
             <!-- w zależności od tego jaka kategoria ustawień jest zaznaczona wyżej wyswietlam inny partial  -->
             <?php
             if ($selectedSettingsFieldTab == 'Profile information') {
                 include $this->resolve('partials/_profile-information.php');
             } elseif ($selectedSettingsFieldTab == 'Transaction Categories') {
                 include $this->resolve('partials/_transaction-categories.php');
+            } elseif ($selectedSettingsFieldTab == 'Set category limit') {
+                include $this->resolve('partials/_set-category-limit.php');
             }
             ?>
         </div>

@@ -1203,6 +1203,25 @@ fieldset.category-error legend {
     font-size: 16px;
 }
 
+.settings-data-limit {
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    border: 1px solid black;
+
+    margin: 5px 0px 5px 0px;
+    padding: 10px 10px 10px 10px;
+
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
 h2.settings-data-title {
     height: 35px;
     width: 100%;
@@ -1260,6 +1279,19 @@ h2.settings-data-title {
     font-weight: 600;
 }
 
+.settings-data-button-limit {
+    height: 30px;
+    /* background-color: rgb(22, 117, 242, 0.1); */
+    color: rgb(22, 117, 242, 0.8);
+    border: 1px solid rgb(22, 117, 242, 0.8);
+    border-radius: 10px;
+
+    margin: 5px 0 5px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
 .settings-data-button:hover {
     cursor: pointer;
 }
@@ -1310,6 +1342,40 @@ h2.settings-data-title {
 
 }
 
+.settings-category-list-limit {
+    height: 100%;
+    max-height: 450px;
+    width: 100%;
+    /* background-color: rgb(255, 255, 255, 0.95); */
+    /* border-radius: 10px; */
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px 5px 5px 5px;
+    margin: 5px 0 5px 0;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.settings-category-list-limit-input {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.3rem;
+    appearance: none;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    outline: none;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2) !important;
+    height: 100%;
+    width: 100px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
 .settings-single-category {
     margin: 10px 5px 10px 5px;
 }
@@ -1342,6 +1408,29 @@ h2.settings-data-title {
     flex-direction: row;
     justify-content: left;
     align-items: center;
+}
+
+.limit-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 10px 0;
+}
+
+.limit-card {
+    height: auto;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    /* border: 1px solid black; */
+}
+
+.limit-name {
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
 /* settings - style - end */
@@ -1763,6 +1852,7 @@ h2.settings-data-title {
     .settings-data-button {
         margin: 5px 0 5px 10px;
     }
+
 
     .change-password-line {
         flex-direction: column;

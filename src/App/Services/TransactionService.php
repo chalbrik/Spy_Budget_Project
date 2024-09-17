@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Framework\Database;
+use DateTime;
 use Framework\Exceptions\ValidationException;
 
 class TransactionService
 {
 
-    public function __construct(private Database $db)
-    {
-    }
+    public function __construct(private Database $db) {}
 
     public function create(array $formData)
     {
@@ -59,16 +58,30 @@ class TransactionService
         $currentUserId = $_SESSION['user'];
 
         if ($transactionsType == "incomes") {
-            $diplayedCategories = $this->db->query("SELECT income_category_assigned_to_user_id, income_category_name FROM incomes_category_assigned_to_users WHERE user_id = :userId", [
+            $diplayedCategories = $this->db->query("SELECT income_category_assigned_to_user_id, income_category_name  FROM incomes_category_assigned_to_users WHERE user_id = :userId", [
                 'userId' => $currentUserId
             ])->findAll();
         } else if ($transactionsType == "expenses") {
-            $diplayedCategories = $this->db->query("SELECT expense_category_assigned_to_user_id, expense_category_name FROM expenses_category_assigned_to_users WHERE user_id = :userId", [
+            $diplayedCategories = $this->db->query("SELECT expense_category_assigned_to_user_id, expense_category_name, category_limit FROM expenses_category_assigned_to_users WHERE user_id = :userId", [
                 'userId' => $currentUserId
             ])->findAll();
         }
 
         return $diplayedCategories;
+    }
+
+    public function getCategoryLimit(string $categoryId)
+    {
+        $currentUserId = $_SESSION['user'];
+
+        if ($categoryId) {
+            $categoryLimit = $this->db->query("SELECT category_limit FROM expenses_category_assigned_to_users WHERE user_id = :userId AND expense_category_assigned_to_user_id  = :categoryId", [
+                'userId' => $currentUserId,
+                'categoryId' => $categoryId
+            ])->find();
+        }
+
+        return $categoryLimit;
     }
 
     public function getTransactionsData(): array
@@ -270,5 +283,44 @@ class TransactionService
                 'userId' => $userId
             ]
         );
+    }
+
+    public function updateCategoryLimit(string $categoryId, string $categoryLimit)
+    {
+        $userId = $_SESSION['user'];
+
+
+        $this->db->query("UPDATE expenses_category_assigned_to_users SET category_limit = :categoryLimit WHERE expense_category_assigned_to_user_id = :categoryId AND user_id = :userId", [
+            'categoryLimit' => $categoryLimit,
+            'categoryId' => $categoryId,
+            'userId' => $userId
+        ]);
+    }
+
+    public function getLimitValue(string $categoryId, string $date)
+    {
+        //teraz to co chcę zrobić to wysłac zapytanie aby pobrać sumę wydatków z okresu danego miesiąca
+        // na podstawie nadej date trzeba wyciągnąć pierowszy i ostatni dzień miesiąca
+
+        $userId = $_SESSION['user'];
+
+        //stworzeniu zakresu miesięcy
+
+        $currentDate = new DateTime($date);
+
+        // Skopiuj obiekt DateTime i ustaw na pierwszy dzień miesiąca
+        $firstDay = $currentDate->modify('first day of this month')->format('Y-m-d');
+
+        // Skopiuj obiekt DateTime i ustaw na ostatni dzień miesiąca
+        $lastDay = $currentDate->modify('last day of this month')->format('Y-m-d');
+
+        $limitValue = $this->db->query("SELECT SUM(expense_amount) AS total_expenses FROM expenses WHERE expense_date BETWEEN :firstDay AND :lastDay AND user_id = :userId AND expense_category_assigned_to_user_id = :categoryId", [
+            'firstDay' => $firstDay,
+            'lastDay' => $lastDay,
+            'userId' => $userId,
+            'categoryId' => $categoryId
+        ])->find();
+
+        return $limitValue;
     }
 }

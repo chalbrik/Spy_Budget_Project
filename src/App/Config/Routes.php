@@ -29,8 +29,15 @@ function registerRoutes(App $app)
     $app->get('/add-income', [AddIncomeController::class, 'addIncomePage'])->add(AuthRequiredMiddleware::class);
     $app->post('/add-income', [AddIncomeController::class, 'addIncome'])->add(AuthRequiredMiddleware::class);
 
+    $app->get('/api/add-expense/limit-info/{categoryId}', [AddExpenseController::class, 'getCategoryLimit'])->add(AuthRequiredMiddleware::class);
+    $app->get('/api/add-expense/limit-value/{categoryId}/{date}/', [AddExpenseController::class, 'getLimitValue'])->add(AuthRequiredMiddleware::class);
+
+    $app->post('/settings/category-limit/{categoryId}', [AddExpenseController::class, 'updateCategoryLimit'])->add(AuthRequiredMiddleware::class);
+
     $app->get('/add-expense', [AddExpenseController::class, 'addExpensePage'])->add(AuthRequiredMiddleware::class);
     $app->post('/add-expense', [AddExpenseController::class, 'addExpense'])->add(AuthRequiredMiddleware::class);
+
+
 
     $app->get('/transaction-added', [TransactionAddedController::class, 'transactionAddedPage'])->add(AuthRequiredMiddleware::class);
 

@@ -8,7 +8,7 @@
             <div class="form-amount-date">
                 <div class="form-input">
                     <span>Amount</span>
-                    <div class="amount-input-currency"><input class="amount-input <?php echo array_key_exists('amount', $errors) ? 'amount-input-error' : ''; ?>" type="text" name="amount"" type=" text" name="amount" />
+                    <div class="amount-input-currency"><input class="amount-input <?php echo array_key_exists('amount', $errors) ? 'amount-input-error' : ''; ?>" type="number" name="amount"" type=" text" name="amount" />
                         <span class="currency <?php echo array_key_exists('amount', $errors) ? 'currency-error' : ''; ?>">pln</span>
                     </div>
                     <?php if (array_key_exists('amount', $errors)) : ?>
@@ -33,6 +33,7 @@
 
                     <div class="radio-row">
                         <select class="category-data-input" name="transaction-category" id="<?php echo htmlspecialchars($incomeCategory['expense_category_name']); ?>">
+                            <option></option>
                             <?php if (!empty($categories)) : ?>
                                 <?php foreach ($categories as $expenseCategory) : ?>
                                     <option value="<?php echo htmlspecialchars($expenseCategory['expense_category_assigned_to_user_id']); ?>"><?php echo htmlspecialchars($expenseCategory['expense_category_name']); ?></option>
@@ -48,6 +49,11 @@
                         <?php echo e($errors['transaction-category'][0]); ?>
                     </span>
                 <?php endif; ?>
+            </div>
+            <div class="limit-container">
+                <div class="limit-card"><span class="limit-name">Limit info</span><span id="limit-info">Pick category to see the limit.</span></div>
+                <div class="limit-card"><span class="limit-name">Limit value</span><span id="limit-value">Pick category to see how much money has been spent on this category.</span></div>
+                <div class="limit-card"><span class="limit-name">Cash left</span><span id="cash-left">Set inputs to see how much cash you have left to spend this month.</span></div>
             </div>
             <div class="form-input-note">
                 <span>Note</span>

@@ -255,6 +255,143 @@ if (document.querySelector(".check-balance-description-button")) {
     });
 }
 
+// akcja w momencie wybrania kategorii w add income
+
+if (window.location.pathname === "/add-expense") {
+  let listenerTriggerred = false;
+  let expenseAmount = 0;
+  let category = null;
+  let date = null;
+
+  const categoryLimitElement = document.getElementById("limit-info");
+  const limitValueElement = document.getElementById("limit-value");
+  const cashLeftElement = document.getElementById("cash-left");
+
+  function getExpenseAmount() {
+    let value = document.querySelector(".amount-input").value;
+    value.trim() !== "" ? (value = parseFloat(value)) : (value = 0);
+    listenerTriggerred = true;
+    return value;
+  }
+
+  function getDate() {
+    const date = document.querySelector(".date-input").value;
+    listenerTriggerred = true;
+    return date;
+  }
+
+  function getCategory() {
+    const category = document.querySelector(".category-data-input").value;
+    listenerTriggerred = true;
+    return category;
+  }
+
+  async function updateLimitInfo() {
+    //1. Limit info - załadowanie
+    if (listenerTriggerred) {
+      try {
+        const res = await fetch(`/api/add-expense/limit-info/${category}`);
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        categoryLimitData = await res.json();
+        if (categoryLimitData && categoryLimitData.category_limit) {
+          categoryLimitElement.innerText = `You set the limit ${categoryLimitData.category_limit} PLN monthly for that category.`;
+        } else {
+          categoryLimitElement.innerText = `No limit set to this category.`;
+        }
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+
+      //2. Limit Value załadowanie
+      try {
+        const res = await fetch(
+          `/api/add-expense/limit-value/${category}/${date}/`
+        );
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        limitValueData = await res.json();
+
+        if (limitValueData.total_expenses) {
+          expenseAmount =
+            parseFloat(expenseAmount) +
+            parseFloat(limitValueData.total_expenses);
+          limitValueElement.innerText = `You spent ${limitValueData.total_expenses} PLN this month for this category.`;
+        } else {
+          limitValueElement.innerText = `No money was spent in this category this month.`;
+        }
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+
+      //3. Cash left - załadowanie
+
+      let categoryLimit = parseFloat(categoryLimitData.category_limit) || 0;
+      let cashLeft = categoryLimit - expenseAmount;
+
+      cashLeftElement.innerText = `Limit balance after operation: ${cashLeft} PLN`;
+    }
+  }
+
+  //W momencie wybrania kategorii muszę załadować te 3 zmienne
+  document
+    .querySelector(".category-data-input")
+    .addEventListener("change", async (event) => {
+      event.preventDefault();
+      category = event.target.value;
+      date = getDate();
+      expenseAmount = getExpenseAmount();
+
+      await updateLimitInfo();
+
+      console.log(expenseAmount);
+      console.log(category);
+      console.log(date);
+    });
+
+  document
+    .querySelector(".date-input")
+    .addEventListener("change", async (event) => {
+      event.preventDefault();
+      category = getCategory();
+      date = event.target.value;
+      expenseAmount = getExpenseAmount();
+
+      await updateLimitInfo();
+      console.log(expenseAmount);
+      console.log(category);
+      console.log(date);
+    });
+
+  document
+    .querySelector(".amount-input")
+    .addEventListener("input", async (event) => {
+      event.preventDefault();
+      category = getCategory();
+      date = getDate();
+      if (event.target.value !== "") {
+        expenseAmount = event.target.value;
+      } else {
+        expenseAmount = 0;
+      }
+
+      await updateLimitInfo();
+      console.log(expenseAmount);
+      console.log(category);
+      console.log(date);
+    });
+
+  listenerTriggerred = false;
+  expenseAmount = 0;
+  category = null;
+  date = null;
+}
+
 //koniec kodu z blokiem tekstu z informajami o stronie dla użytkownika
 
 //doughnut - incomes

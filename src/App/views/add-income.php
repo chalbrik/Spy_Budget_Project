@@ -35,6 +35,7 @@
 
                     <div class="radio-row">
                         <select class="category-data-input" name="transaction-category" id="<?php echo htmlspecialchars($incomeCategory['income_category_name']); ?>">
+                            <option></option>
                             <?php if (!empty($categories)) : ?>
                                 <?php foreach ($categories as $incomeCategory) : ?>
                                     <option value="<?php echo htmlspecialchars($incomeCategory['income_category_assigned_to_user_id']); ?>"><?php echo htmlspecialchars($incomeCategory['income_category_name']); ?></option>
@@ -51,6 +52,7 @@
                     </span>
                 <?php endif; ?>
             </div>
+
 
             <div class="form-input-note">
                 <span>Note</span>
