@@ -248,12 +248,15 @@ class TransactionService
 
         $expenseCategoryName = formatString($expenseCategoryName);
 
+        $categoryLimit = 0.00;
+
         $this->db->query(
-            "INSERT INTO expenses_category_assigned_to_users(user_id, expense_category_name) 
-            VALUES(:userId, :expenseCategoryName)",
+            "INSERT INTO expenses_category_assigned_to_users(user_id, expense_category_name, category_limit) 
+            VALUES(:userId, :expenseCategoryName, :categoryLimit)",
             [
                 'userId' => $userId,
-                'expenseCategoryName' =>  $expenseCategoryName
+                'expenseCategoryName' =>  $expenseCategoryName,
+                'categoryLimit' => $categoryLimit
             ]
         );
     }
